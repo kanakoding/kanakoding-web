@@ -6,9 +6,9 @@ import { smoothScrollToElement } from '../utils/smoothScroll';
 
 const NAV_SECTIONS = [
   { id: 'beranda', label: 'Beranda' },
-  { id: 'tentang', label: 'Tentang' },
+  { id: 'tentang', label: 'Cerita Kami' },
   { id: 'layanan', label: 'Layanan' },
-  { id: 'portofolio', label: 'Portofolio' },
+  { id: 'portofolio', label: 'Karya' },
   { id: 'proses', label: 'Cara Kerja' },
 ];
 
@@ -64,11 +64,11 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
         scrolled
-          ? 'bg-[#120804]/95 border-b border-white/12 py-3.5'
+          ? 'bg-[#120804]/95 border-b border-white/10 py-3.5'
           : 'bg-[#0F0704]/85 border-b border-white/5 py-4'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <button
           type="button"
           onClick={() => handleSectionNavigate('beranda')}
@@ -108,12 +108,12 @@ export const Navbar: React.FC = () => {
                 : 'text-[#E5D9CE] hover:text-white hover:bg-[#190C06]'
             }`}
           >
-            <span>Jurnal &amp; Blog</span>
+            <span>Catatan</span>
           </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <div className="flex items-center gap-1 border-r border-white/12 pr-3">
+          <div className="flex items-center gap-1 border-r border-white/10 pr-3">
             <a
               href={BRAND_INFO.socials.github}
               target="_blank"
@@ -148,7 +148,7 @@ export const Navbar: React.FC = () => {
             onClick={() => handleSectionNavigate('kontak')}
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
           >
-            <span>Diskusi Proyek</span>
+            <span>Ngobrol Yuk</span>
             <ArrowUpRight className="w-4 h-4" />
           </button>
         </div>
@@ -164,7 +164,7 @@ export const Navbar: React.FC = () => {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-[#140904] border-b border-white/15 px-4 pt-4 pb-6 mt-3 space-y-1.5">
+        <div className="md:hidden bg-[#140904] border-b border-white/12 px-4 pt-4 pb-6 mt-3 space-y-1.5">
           {NAV_SECTIONS.map((item) => (
             <button
               key={item.id}
@@ -180,17 +180,17 @@ export const Navbar: React.FC = () => {
             to="/portofolio"
             className="block px-4 py-2.5 rounded-[8px] text-sm font-mono text-amber-300 hover:bg-[#1F1009]"
           >
-            &rarr; Indeks Studi Kasus Portofolio
+            &rarr; Lihat Semua Karya
           </Link>
 
           <Link
             to="/blog"
             className="block px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-[#1F1009] hover:text-amber-400"
           >
-            Jurnal &amp; Blog
+            Catatan Studio
           </Link>
 
-          <div className="pt-3 border-t border-white/12 flex items-center justify-between px-2">
+          <div className="pt-3 border-t border-white/10 flex items-center justify-between px-2">
             <div className="flex items-center gap-2">
               <a
                 href={BRAND_INFO.socials.github}
@@ -225,7 +225,7 @@ export const Navbar: React.FC = () => {
               onClick={() => handleSectionNavigate('kontak')}
               className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
             >
-              <span>Hubungi Kami</span>
+              <span>Ngobrol Yuk</span>
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>

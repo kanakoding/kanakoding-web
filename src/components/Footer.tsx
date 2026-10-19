@@ -17,9 +17,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-[#0B0503] border-t border-white/15 pt-16 pb-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/12">
+    <footer className="bg-[#0B0503] border-t border-white/10 pt-16 pb-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           <div className="lg:col-span-5 space-y-5">
             <button
               type="button"
@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
               <img
                 src="/assets/img/logo-white.png"
                 alt="KanaKoding"
-                className="h-11 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </button>
             <p className="text-[#C7B6A6] text-sm leading-relaxed max-w-md">
@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
 
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
-              Navigasi
+              Menu
             </h4>
             <ul className="space-y-2.5 text-sm text-[#C7B6A6]">
               <li>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('tentang')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Tentang Kami
+                  Cerita Kami
                 </button>
               </li>
               <li>
@@ -88,12 +88,12 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('portofolio')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Portofolio
+                  Karya Pilihan
                 </button>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  Jurnal &amp; Blog
+                  Catatan Studio
                 </Link>
               </li>
             </ul>
@@ -101,7 +101,7 @@ export const Footer: React.FC = () => {
 
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
-              Layanan &amp; Ekosistem
+              Yang Kami Kerjakan
             </h4>
             <ul className="space-y-2.5 text-sm text-[#C7B6A6]">
               <li>
@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Custom Web &amp; App Development
+                  Pembuatan Website &amp; Aplikasi
                 </button>
               </li>
               <li>
@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Konsultasi Startup &amp; MVP
+                  Teman Diskusi Produk &amp; MVP
                 </button>
               </li>
               <li>
@@ -128,12 +128,12 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Modernisasi Sistem Enterprise
+                  Peremajaan (Retouch) Web Lama
                 </button>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  E-Learning &amp; Jurnal Teknis
+                  Catatan &amp; Ruang Belajar
                 </Link>
               </li>
             </ul>
@@ -141,7 +141,7 @@ export const Footer: React.FC = () => {
 
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
-              Terhubung
+              Sapa Kami
             </h4>
             <div className="flex items-center gap-2">
               <a
@@ -149,7 +149,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/12 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
+                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -158,7 +158,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/12 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
+                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -167,7 +167,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/12 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
+                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -177,7 +177,7 @@ export const Footer: React.FC = () => {
               onClick={() => scrollToSection('kontak')}
               className="w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-[8px] text-xs font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
             >
-              <span>Mulai Proyek</span>
+              <span>Mulai Ngobrol</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -187,7 +187,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-2">
             <Code2 className="w-4 h-4 text-amber-500" />
             <span>
-              &copy; {new Date().getFullYear()} <strong className="text-[#E5D9CE]">KanaKoding</strong> — {BRAND_INFO.tagline}. All rights reserved.
+              &copy; {new Date().getFullYear()} <strong className="text-[#E5D9CE]">KanaKoding</strong> — {BRAND_INFO.tagline}. Dibuat dengan hangat di Indonesia.
             </span>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-5">
@@ -195,10 +195,10 @@ export const Footer: React.FC = () => {
               Kebijakan Privasi
             </Link>
             <Link to="/tos" className="hover:text-amber-400 transition-colors">
-              Syarat &amp; Ketentuan (ToS)
+              Syarat &amp; Ketentuan
             </Link>
             <Link to="/disclaimer" className="hover:text-amber-400 transition-colors">
-              Disclaimer &amp; Editorial
+              Catatan Redaksi
             </Link>
           </div>
         </div>
