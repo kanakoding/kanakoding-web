@@ -123,13 +123,17 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <Link to="/blog" className="hover:text-white transition-colors">
-                  Komunitas Developer Indonesia
-                </Link>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('layanan')}
+                  className="hover:text-white transition-colors cursor-pointer text-left"
+                >
+                  Modernisasi Sistem Enterprise
+                </button>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  E-Learning &amp; Tutorial Gratis
+                  E-Learning &amp; Jurnal Teknis
                 </Link>
               </li>
             </ul>

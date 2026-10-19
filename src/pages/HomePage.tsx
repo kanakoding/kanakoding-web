@@ -12,7 +12,6 @@ import {
   Mail,
   MessageSquare,
   Send,
-  Users,
   BookOpen,
   Calendar,
   Clock,
@@ -48,7 +47,7 @@ export const HomePage: React.FC = () => {
 
   useEffect(() => {
     updatePageSeo({
-      title: `${BRAND_INFO.name} — ${BRAND_INFO.tagline} | Software House, Konsultan IT & Komunitas Developer`,
+      title: `${BRAND_INFO.name} — ${BRAND_INFO.tagline} | Software House, Konsultan IT & Produk Digital`,
       description: BRAND_INFO.description,
       canonicalPath: '/',
       ogType: 'website',
@@ -99,8 +98,6 @@ export const HomePage: React.FC = () => {
         return <Cpu className="w-4 h-4" />;
       case 'konsultasi':
         return <Compass className="w-4 h-4" />;
-      case 'komunitas':
-        return <Users className="w-4 h-4" />;
       case 'kursus':
         return <GraduationCap className="w-4 h-4" />;
       default:
@@ -135,8 +132,8 @@ export const HomePage: React.FC = () => {
 
               <p className="text-base sm:text-lg text-[#D5C7B8] leading-relaxed max-w-2xl">
                 <strong className="text-white">KanaKoding</strong> merancang sistem web
-                enterprise, aplikasi mobile, dan arsitektur MVP startup yang terukur—sekaligus
-                menggerakkan ekosistem komunitas dan edukasi pemrograman terbuka di Indonesia.
+                enterprise, aplikasi mobile, dan arsitektur MVP startup yang terukur—membantu
+                perusahaan dan pelaku bisnis mempercepat transformasi digital secara efisien.
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
@@ -308,11 +305,11 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-amber-400">
                 <span className="w-8 h-[2px] bg-amber-500" />
-                <span>Profil Studio &amp; Komunitas</span>
+                <span>Profil Studio &amp; Rekayasa</span>
               </div>
 
               <h2 className="text-[clamp(1.75rem,3.2vw,2.65rem)] font-bold text-white leading-tight">
-                Mitra Konsultasi Teknologi &amp; Rumah Kolaborasi Developer Indonesia
+                Mitra Konsultasi Teknologi &amp; Pengembangan Produk Digital
               </h2>
 
               <p className="text-[#D5C7B8] text-base leading-relaxed">
@@ -320,15 +317,13 @@ export const HomePage: React.FC = () => {
                 tantangan operasional dan skala bisnis melalui rekayasa perangkat lunak yang
                 aplikatif. Kami memadukan disiplin teknis{' '}
                 <strong className="text-amber-300">Software House &amp; Konsultan IT</strong>{' '}
-                dengan semangat berbagi pengetahuan melalui forum diskusi, dokumentasi teknis,
-                dan e-learning terbuka.
+                dengan standar dokumentasi teknis dan arsitektur sistem modern.
               </p>
 
               <p className="text-[#C7B6A6] text-base leading-relaxed">
                 Bagi para <strong className="text-white">entrepreneur, korporasi, dan perintis startup</strong>,
                 kami menerjemahkan kebutuhan bisnis menjadi arsitektur aplikasi yang siap
-                tumbuh—didukung oleh jaringan praktisi dari komunitas software developer
-                Indonesia.
+                tumbuh, aman, dan mudah dikelola untuk jangka panjang.
               </p>
 
               <div className="pt-4 border-y border-white/12 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/12">
@@ -349,11 +344,11 @@ export const HomePage: React.FC = () => {
                     02 / KOLABORATIF
                   </div>
                   <h3 className="text-base font-bold text-white mt-1">
-                    Basis Komunitas
+                    Kemitraan Teknis
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
-                    Didukung ekosistem engineer aktif serta budaya peninjauan kode dan berbagi
-                    ilmu terbuka.
+                    Pendampingan langsung oleh tim engineer berpengalaman sejak perancangan
+                    hingga rilis produksi.
                   </p>
                 </div>
                 <div className="py-4 sm:pl-5">
@@ -380,10 +375,10 @@ export const HomePage: React.FC = () => {
             <div className="space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-amber-400">
                 <span className="w-8 h-[2px] bg-amber-500" />
-                <span>Layanan &amp; Pilar Ekosistem</span>
+                <span>Layanan &amp; Kapabilitas</span>
               </div>
               <h2 className="text-[clamp(1.75rem,3.2vw,2.65rem)] font-bold text-white leading-tight">
-                Kapabilitas End-to-End dari Rekayasa Sistem hingga Edukasi Talenta
+                Solusi End-to-End dari Rekayasa Sistem hingga Konsultasi Produk
               </h2>
             </div>
             <p className="text-[#C7B6A6] text-sm sm:text-base max-w-md">
@@ -396,7 +391,7 @@ export const HomePage: React.FC = () => {
             <div
               role="tablist"
               aria-label="Pilar Layanan KanaKoding"
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-white/12 divide-y sm:divide-y-0 sm:divide-x divide-white/12 bg-[#120804]"
+              className="grid grid-cols-1 sm:grid-cols-3 border-b border-white/12 divide-y sm:divide-y-0 sm:divide-x divide-white/12 bg-[#120804]"
             >
               {SERVICES.map((service, index) => {
                 const isActive = service.id === activeService.id;
@@ -698,7 +693,7 @@ export const HomePage: React.FC = () => {
                 <span>Jurnal Teknis &amp; Wawasan</span>
               </div>
               <h2 className="text-[clamp(1.75rem,3.2vw,2.65rem)] font-bold text-white leading-tight">
-                Publikasi Terbaru Tim &amp; Komunitas KanaKoding
+                Publikasi Terbaru Tim Engineering KanaKoding
               </h2>
               <p className="text-[#C7B6A6] text-base">
                 Artikel seputar arsitektur perangkat lunak, validasi MVP startup, serta studi
@@ -922,8 +917,8 @@ export const HomePage: React.FC = () => {
                         <option value="Konsultasi Startup & MVP">
                           Konsultasi Aplikasi &amp; Bisnis Digital (Startup MVP)
                         </option>
-                        <option value="Komunitas & Edukasi">
-                          Kolaborasi Komunitas &amp; E-Learning
+                        <option value="Modernisasi Website & Sistem">
+                          Modernisasi Website &amp; Integrasi Sistem
                         </option>
                         <option value="Pertanyaan Umum">Pertanyaan Umum</option>
                       </select>

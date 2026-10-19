@@ -217,10 +217,10 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
                 </p>
 
                 <h2 className="text-lg sm:text-xl font-bold text-white pt-2">
-                  3. Etika Penggunaan Komunitas &amp; Edukasi
+                  3. Etika Penggunaan Situs &amp; Layanan
                 </h2>
                 <p>
-                  Pengguna dilarang memanfaatkan situs atau kanal komunitas KanaKoding untuk
+                  Pengguna dilarang memanfaatkan situs atau layanan publikasi KanaKoding untuk
                   menyebarkan konten berbahaya (*malware*), *spam*, pelanggaran hak cipta, atau
                   aktivitas yang melanggar hukum.
                 </p>

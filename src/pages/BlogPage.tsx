@@ -63,7 +63,7 @@ export const BlogPage: React.FC = () => {
               <span>KANAKODING ENGINEERING JOURNAL</span>
             </div>
             <h1 className="text-[clamp(2rem,4vw,3.25rem)] font-bold text-white leading-tight">
-              Wawasan Engineering, Bisnis Digital &amp; Komunitas
+              Wawasan Engineering, Arsitektur Sistem &amp; Bisnis Digital
             </h1>
             <p className="text-[#D5C7B8] text-base leading-relaxed">
               Artikel teknis mendalam, panduan membangun produk startup, dan studi kasus
