@@ -13,7 +13,6 @@ import {
   Mail,
   MessageSquare,
   Send,
-  Sparkles,
   Users,
   BookOpen,
   Calendar,
@@ -116,11 +115,6 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Hero Left Copy */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-[8px] bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-wide">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>SOFTWARE HOUSE • IT CONSULTING • DEVELOPER ECOSYSTEM</span>
-              </div>
-
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 Wujudkan Ekosistem{' '}
                 <span className="text-amber-400">
