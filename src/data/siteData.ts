@@ -39,7 +39,7 @@ export const BRAND_INFO = {
     quote: "Teknologi yang baik itu bukan yang paling rumit, tapi yang paling memudahkan hidup penggunanya.",
     subQuote: "Teman seperjalanan digital untuk bisnis dan ide-ide baru Anda.",
     description:
-        "KanaKoding adalah studio pengembangan produk digital dan teman diskusi teknologi. Dari sketsa ide di meja kopi sampai aplikasi yang siap dipakai ribuan orang—kami bantu wujudkan website, aplikasi, dan sistem bisnis dengan cara kerja yang dekat, jujur, dan nggak ribet.",
+        "KanaKoding adalah studio pengembangan produk digital dan teman diskusi teknologi. Kami meracik website, aplikasi, serta integrasi API (merchant, pembayaran, sosial media) dengan bantuan optimasi AI agar proses delivery jauh lebih cepat dan kualitasnya terjaga.",
     email: "halo@kanakoding.com",
     whatsapp: "6281234567890",
     location: "Jakarta, Indonesia",
@@ -52,8 +52,8 @@ export const BRAND_INFO = {
 
 export const HERO_STATS = [
     { value: "30+", label: "Karya & Produk Rilis" },
-    { value: "100%", label: "Dikerjakan In-House" },
-    { value: "Santai", label: "Tapi Serius Soal Kualitas" },
+    { value: "AI-Assisted", label: "Delivery Cepat & Presisi" },
+    { value: "API Ready", label: "Payment, Merchant & Sosmed" },
     { value: "< 24 Jam", label: "Balas Obrolan Anda" },
 ];
 
@@ -62,18 +62,35 @@ export const SERVICES: ServiceItem[] = [
         id: "development",
         title: "Bikin Website & Aplikasi",
         badge: "WEB & APP CRAFTING",
-        shortDesc: "Dari web profil yang estetik sampai aplikasi operasional yang siap jalan setiap hari.",
-        description: "Punya bisnis yang butuh rumah digital baru, atau operasional kantor yang masih serba manual? Kami bantu buatkan website company profile yang berkarakter, dashboard kerja yang rapi, sampai aplikasi mobile yang nyaman dipakai pelanggan Anda.",
+        shortDesc: "Dari web profil yang estetik sampai aplikasi operasional, dipercepat dengan workflow AI.",
+        description: "Punya bisnis yang butuh rumah digital baru, atau operasional kantor yang masih serba manual? Kami bantu buatkan website company profile yang berkarakter, dashboard kerja, hingga aplikasi mobile—menggunakan alur kerja berbantuan AI untuk mempercepat delivery dan menjaga kualitas kode tetap rapi.",
         image: "/assets/img/background1.jpg",
         deliverables: [
             "Website Company Profile & Brand Showcase yang segar",
             "Aplikasi Web & Dashboard Operasional yang gampang dipakai",
-            "Aplikasi Mobile (Android & iOS) untuk pengguna Anda",
+            "Optimasi AI untuk pengujian kualitas & kecepatan rilis (Delivery)",
             "Peremajaan (Retouch) website lama biar tampil kekinian & cepat",
         ],
         ctaLabel: "Lihat Karya Kami",
         ctaLink: "#portofolio",
         accent: "from-amber-500 to-orange-600",
+    },
+    {
+        id: "integrasi",
+        title: "Integrasi API & Pembayaran",
+        badge: "THIRD-PARTY API INTEGRATION",
+        shortDesc: "Hubungkan aplikasi Anda dengan sistem merchant, payment gateway, hingga sosial media.",
+        description: "Biar bisnis jalan otomatis tanpa pindah-pindah aplikasi. Kami melayani penyambungan (integrasi) API pihak ketiga ke sistem Anda—mulai dari pembayaran otomatis (QRIS, Virtual Account, E-Wallet), sinkronisasi sistem kasir/merchant & logistik, hingga fitur login dan otomasi sosial media.",
+        image: "/assets/img/app-development.png",
+        deliverables: [
+            "Integrasi Payment Gateway (QRIS, Virtual Account, E-Wallet, Kartu Kredit)",
+            "Koneksi API Merchant, POS, Marketplace & Ekspedisi Pengiriman",
+            "Integrasi API Sosial Media (Instagram, WhatsApp Business, Meta, OAuth Login)",
+            "Sinkronisasi Webhook aman & pantauan transaksi real-time",
+        ],
+        ctaLabel: "Tanya Soal Integrasi",
+        ctaLink: "#kontak",
+        accent: "from-amber-500 to-orange-500",
     },
     {
         id: "konsultasi",
@@ -85,7 +102,7 @@ export const SERVICES: ServiceItem[] = [
         deliverables: [
             "Sesi bedah ide & pemetaan alur produk (Product Discovery)",
             "Perancangan prototipe & versi awal produk (Startup MVP)",
-            "Rekomendasi teknologi yang hemat biaya & tepat sasaran",
+            "Rekomendasi teknologi & pemanfaatan AI yang tepat sasaran",
             "Review kesehatan aplikasi yang sudah berjalan",
         ],
         ctaLabel: "Ngobrol Dulu Yuk",
@@ -148,20 +165,20 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     },
     {
         id: "enterprise-app-suite",
-        title: "Workspace Operasional & Dashboard Tim",
+        title: "Workspace Operasional & Integrasi Merchant",
         client: "Mitra Bisnis & UMKM",
         category: "Web Platform",
         year: "2025",
         image: "/assets/img/app-development.png",
-        summary: "Mengubah tumpukan spreadsheet harian menjadi satu dashboard kerja yang rapi dan enak dilihat setiap pagi.",
-        challenge: "Tim operasional sering menghabiskan waktu berjam-jam hanya untuk mencocokkan laporan dari berbagai file spreadsheet yang terpisah-pisah.",
-        solution: "Kami meracik aplikasi dashboard internal yang menyatukan pencatatan harian, ringkasan performa, dan pembagian tugas tim dalam satu layar yang simpel.",
+        summary: "Mengubah tumpukan spreadsheet harian menjadi satu dashboard kerja yang terhubung dengan transaksi merchant dan pembayaran.",
+        challenge: "Tim operasional sering menghabiskan waktu berjam-jam hanya untuk mencocokkan laporan penjualan, status pembayaran, dan stok dari berbagai kanal yang terpisah.",
+        solution: "Kami meracik aplikasi dashboard internal yang menyatukan pencatatan harian, integrasi API pembayaran/merchant, dan pembagian tugas tim dalam satu layar yang simpel.",
         highlights: [
-            "Ringkasan data harian yang visual dan langsung mudah dibaca",
+            "Sinkronisasi data transaksi dan pembayaran secara otomatis lewat API",
             "Nyaman dibuka dari laptop kantor maupun sambil jalan lewat smartphone",
             "Dirancang fleksibel mengikuti kebiasaan kerja tim sehari-hari",
         ],
-        techStack: ["Web App", "Custom Dashboard", "Team Workflow", "Cloud Ready"],
+        techStack: ["Web App", "API Integration", "Payment & Merchant", "Cloud Ready"],
     },
     {
         id: "kanakoding-hub",
@@ -197,8 +214,8 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
     },
     {
         step: "03",
-        title: "Meracik & Bangun Produk",
-        description: "Tim kami mulai menghidupkan desainnya menjadi aplikasi nyata. Kami rutin memberi kabar progres dengan bahasa yang gampang dimengerti.",
+        title: "Racik Cepat dengan Bantuan AI",
+        description: "Tim kami membangun aplikasi sekaligus menyambungkan API pihak ketiga (pembayaran, merchant, sosial media) dengan dukungan AI untuk optimasi kecepatan delivery dan pengecekan kualitas kode berlapis.",
         deliverable: "Link Preview & Aplikasi Teruji",
     },
     {

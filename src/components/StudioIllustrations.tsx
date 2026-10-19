@@ -279,6 +279,105 @@ export const ServiceIllustration: React.FC<{ id: string; className?: string }> =
     );
   }
 
+  if (id === 'integrasi') {
+    return (
+      <svg
+        viewBox="0 0 240 150"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className={className}
+        aria-hidden="true"
+      >
+        {/* Left: Core Business App Hub */}
+        <rect
+          x="18"
+          y="38"
+          width="74"
+          height="74"
+          rx="8"
+          fill="#1B0E08"
+          stroke="#F59E0B"
+          strokeWidth="1.75"
+        />
+        <rect x="32" y="54" width="46" height="10" rx="4" fill="#F59E0B" />
+        <path
+          d="M32 76H68M32 88H56"
+          stroke="#F7F1EB"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+
+        {/* API Connection Lines to 3 Third-Party Nodes */}
+        <path
+          d="M92 56H122V30H148"
+          stroke="#F59E0B"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M92 75H148"
+          stroke="#F59E0B"
+          strokeWidth="1.75"
+          strokeDasharray="3 3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M92 94H122V120H148"
+          stroke="#F59E0B"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+
+        {/* Node 1: Payment Gateway */}
+        <rect
+          x="148"
+          y="14"
+          width="74"
+          height="32"
+          rx="8"
+          fill="#24120B"
+          stroke="#F7F1EB"
+          strokeOpacity="0.3"
+          strokeWidth="1.5"
+        />
+        <circle cx="164" cy="30" r="5" fill="#F59E0B" />
+        <path d="M176 30H208" stroke="#F7F1EB" strokeWidth="2" strokeLinecap="round" />
+
+        {/* Node 2: Merchant / POS / Marketplace */}
+        <rect
+          x="148"
+          y="59"
+          width="74"
+          height="32"
+          rx="8"
+          fill="#24120B"
+          stroke="#F59E0B"
+          strokeOpacity="0.6"
+          strokeWidth="1.5"
+        />
+        <rect x="159" y="70" width="10" height="10" rx="3" fill="#F59E0B" />
+        <path d="M176 75H208" stroke="#F7F1EB" strokeWidth="2" strokeLinecap="round" />
+
+        {/* Node 3: Social Media API */}
+        <rect
+          x="148"
+          y="104"
+          width="74"
+          height="32"
+          rx="8"
+          fill="#24120B"
+          stroke="#F7F1EB"
+          strokeOpacity="0.3"
+          strokeWidth="1.5"
+        />
+        <circle cx="164" cy="120" r="5" stroke="#F59E0B" strokeWidth="1.75" />
+        <path d="M176 120H204" stroke="#F7F1EB" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
   return (
     <svg
       viewBox="0 0 240 150"

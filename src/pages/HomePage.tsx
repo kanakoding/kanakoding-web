@@ -113,8 +113,9 @@ export const HomePage: React.FC = () => {
 
               <p className="text-base sm:text-lg text-[#D5C7B8] leading-relaxed max-w-xl">
                 Dari obrolan sketsa di meja kopi sampai aplikasi yang siap dipakai ribuan
-                orang. Kami bantu wujudkan website, aplikasi, dan sistem bisnis dengan cara
-                kerja yang dekat, jujur, dan nggak ribet.
+                orang. Kami bantu wujudkan website, aplikasi, dan integrasi API pihak ketiga
+                dengan sentuhan personal serta dukungan AI agar delivery lebih cepat dan
+                kualitasnya terjaga.
               </p>
 
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
@@ -212,8 +213,7 @@ export const HomePage: React.FC = () => {
                     Cerita Singkat Kami
                   </div>
                   <p className="text-sm text-[#E5D9CE] leading-relaxed">
-                    Meracik kode dan desain yang manusiawi untuk bantu bisnis tumbuh lebih
-                    tenang.
+                    Sentuhan manusia yang hangat, dipercepat dengan bantuan teknologi AI modern.
                   </p>
                 </div>
               </div>
@@ -231,15 +231,14 @@ export const HomePage: React.FC = () => {
               <p className="text-[#D5C7B8] text-base leading-relaxed">
                 Kami sadar, membangun website atau aplikasi sering kali terasa membingungkan
                 karena banyaknya istilah teknis. Di <strong className="text-white">KanaKoding</strong>,
-                kami ingin mengubah pengalaman itu menjadi jauh lebih menyenangkan dan
-                membumi.
+                kami mulai semuanya dari mendengar cerita Anda, lalu meracik solusinya dengan
+                desain yang simpel dan jujur.
               </p>
 
               <p className="text-[#C7B6A6] text-base leading-relaxed">
-                Setiap proyek selalu kami mulai dari mendengar cerita Anda—apa yang bikin
-                pekerjaan harian terasa repot, atau mimpi apa yang ingin dicapai bisnis Anda.
-                Dari sana, kita racik solusinya pelan-pelan dengan desain yang simpel, jujur,
-                dan elegan.
+                Di dapur kerja, kami juga menggunakan <strong className="text-amber-300">AI untuk optimasi kecepatan delivery dan kualitas kode</strong>,
+                serta siap menyambungkan aplikasi Anda ke berbagai layanan pihak ketiga seperti{' '}
+                <strong className="text-white">merchant, sistem pembayaran, hingga sosial media</strong>.
               </p>
 
               <div className="pt-4 border-y border-white/10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
@@ -250,27 +249,27 @@ export const HomePage: React.FC = () => {
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
                     Tanpa jargon yang bikin kening berkerut. Semua opsi kami jelaskan dengan
-                    jernih dan transparan.
+                    bahasa yang jernih.
                   </p>
                 </div>
                 <div className="py-4 sm:px-5">
                   <div className="text-amber-400 font-mono text-xs">02</div>
                   <h3 className="text-base font-bold text-white mt-1">
-                    Dibuat Pakai Hati
+                    Optimasi AI &amp; Kualitas
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
-                    Detail tampilan dan kenyamanan pengguna kami jaga seolah kami sedang
-                    membangun produk sendiri.
+                    Kami memanfaatkan AI untuk mempercepat waktu pengerjaan (delivery) dan
+                    memastikan kode lebih teruji.
                   </p>
                 </div>
                 <div className="py-4 sm:pl-5">
                   <div className="text-amber-400 font-mono text-xs">03</div>
                   <h3 className="text-base font-bold text-white mt-1">
-                    Rapi &amp; Awet
+                    Siap Integrasi API
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
-                    Desain yang bersih di luar dan kode yang sehat di dalam, supaya gampang
-                    dikembangkan kapan saja.
+                    Mudah disambungkan ke payment gateway, sistem merchant/POS, hingga kanal
+                    sosial media Anda.
                   </p>
                 </div>
               </div>
@@ -289,8 +288,8 @@ export const HomePage: React.FC = () => {
               Apa yang Bisa Kita Kerjakan Bareng?
             </h2>
             <p className="text-[#C7B6A6] text-base">
-              Pilih salah satu layanan di bawah ini untuk melihat bagaimana kami bisa
-              membantu rencana Anda.
+              Mulai dari bikin produk dari nol, menyambungkan API pembayaran &amp; merchant,
+              hingga merapikan sistem yang sudah berjalan.
             </p>
           </div>
 
@@ -298,7 +297,7 @@ export const HomePage: React.FC = () => {
             <div
               role="tablist"
               aria-label="Layanan KanaKoding"
-              className="grid grid-cols-1 sm:grid-cols-3 border-b border-white/10 divide-y sm:divide-y-0 sm:divide-x divide-white/10 bg-[#120804]"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-b border-white/10 divide-y sm:divide-y-0 sm:divide-x divide-white/10 bg-[#120804]"
             >
               {SERVICES.map((service, index) => {
                 const isActive = service.id === activeService.id;
@@ -309,16 +308,16 @@ export const HomePage: React.FC = () => {
                     aria-selected={isActive}
                     type="button"
                     onClick={() => setActiveServiceId(service.id)}
-                    className={`p-5 text-left transition-colors cursor-pointer ${
+                    className={`p-4 sm:p-5 text-left transition-colors cursor-pointer ${
                       isActive
                         ? 'bg-[#211009] text-white'
                         : 'text-[#C7B6A6] hover:bg-[#190C06] hover:text-white'
                     }`}
                   >
-                    <div className="text-xs font-mono text-amber-400 mb-1">
+                    <div className="text-[11px] font-mono text-amber-400 mb-1 truncate">
                       0{index + 1} — {service.badge}
                     </div>
-                    <div className="text-base font-bold">{service.title}</div>
+                    <div className="text-sm sm:text-base font-bold">{service.title}</div>
                   </button>
                 );
               })}
@@ -363,7 +362,7 @@ export const HomePage: React.FC = () => {
 
                 <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
                   <span className="text-xs text-[#B5A392]">
-                    Punya kebutuhan yang agak unik? Ceritakan saja dulu.
+                    Punya kebutuhan integrasi atau fitur khusus? Ceritakan saja dulu.
                   </span>
                   {activeService.ctaLink.startsWith('/') ? (
                     <Link
@@ -390,6 +389,45 @@ export const HomePage: React.FC = () => {
                   )}
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 rounded-[8px] border border-white/10 bg-[#160B06] divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <div className="p-5 sm:p-6 space-y-1.5">
+              <div className="text-xs font-mono text-amber-400">
+                AI-OPTIMIZED DELIVERY
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Rilis Lebih Cepat &amp; Terjaga
+              </h3>
+              <p className="text-xs sm:text-sm text-[#C7B6A6] leading-relaxed">
+                Kami menggunakan AI untuk membantu pengecekan kualitas kode, mempercepat
+                iterasi fitur, dan memangkas waktu tunggu pengerjaan.
+              </p>
+            </div>
+            <div className="p-5 sm:p-6 space-y-1.5">
+              <div className="text-xs font-mono text-amber-400">
+                PAYMENT &amp; MERCHANT API
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Transaksi &amp; Kasir Otomatis
+              </h3>
+              <p className="text-xs sm:text-sm text-[#C7B6A6] leading-relaxed">
+                Integrasi langsung dengan QRIS, Virtual Account, E-Wallet, sistem POS merchant,
+                marketplace, hingga ekspedisi pengiriman.
+              </p>
+            </div>
+            <div className="p-5 sm:p-6 space-y-1.5">
+              <div className="text-xs font-mono text-amber-400">
+                SOCIAL MEDIA &amp; OAUTH API
+              </div>
+              <h3 className="text-base font-bold text-white">
+                Terhubung ke Kanal Sosial
+              </h3>
+              <p className="text-xs sm:text-sm text-[#C7B6A6] leading-relaxed">
+                Koneksi API ke WhatsApp Business, Instagram, Meta, serta kemudahan login satu
+                klik (Google/Social Login) untuk pengguna Anda.
+              </p>
             </div>
           </div>
         </div>
@@ -776,6 +814,9 @@ export const HomePage: React.FC = () => {
                       >
                         <option value="Bikin Website / Aplikasi">
                           Bikin Website atau Aplikasi Baru
+                        </option>
+                        <option value="Integrasi API (Merchant, Payment, Sosmed)">
+                          Integrasi API (Merchant, Pembayaran &amp; Sosial Media)
                         </option>
                         <option value="Diskusi Ide Produk / MVP">
                           Diskusi Ide Produk &amp; MVP Startup

@@ -119,7 +119,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Teman Diskusi Produk &amp; MVP
+                  Integrasi API (Merchant, Payment &amp; Sosmed)
                 </button>
               </li>
               <li>
@@ -128,7 +128,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Peremajaan (Retouch) Web Lama
+                  Teman Diskusi Produk &amp; MVP
                 </button>
               </li>
               <li>
