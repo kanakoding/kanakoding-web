@@ -1,0 +1,3 @@
+# Google AdSense Authorized Digital Sellers (ads.txt)
+# Ganti pub-0000000000000000 dengan Publisher ID AdSense Anda setelah akun disetujui.
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0

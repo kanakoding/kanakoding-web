@@ -189,3 +189,14 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
         deliverable: "Aplikasi Live & Dokumentasi Lengkap",
     },
 ];
+
+export const ADSENSE_CONFIG = {
+    enabled: false, // Ubah menjadi true setelah akun Google AdSense disetujui
+    clientId: "ca-pub-0000000000000000", // Ganti dengan Publisher ID AdSense Anda
+    slots: {
+        blogTopBanner: "1111111111",
+        blogInArticle: "2222222222",
+        blogBottomBanner: "3333333333",
+    },
+};
+

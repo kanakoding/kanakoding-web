@@ -6,17 +6,28 @@ import {
   Calendar,
   Clock,
   Search,
+  ShieldCheck,
   Tag,
-  Terminal,
 } from 'lucide-react';
 import { BLOG_CATEGORIES, BLOG_POSTS } from '../data/blogData';
+import { ADSENSE_CONFIG, BRAND_INFO } from '../data/siteData';
+import { AdUnit } from '../components/AdUnit';
+import { updatePageSeo } from '../utils/seo';
+import { smoothScrollToY } from '../utils/smoothScroll';
 
 export const BlogPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollToY(0, 500);
+    updatePageSeo({
+      title: `Blog & Artikel Teknologi — ${BRAND_INFO.name} (${BRAND_INFO.tagline})`,
+      description:
+        'Kumpulan artikel rekayasa perangkat lunak, arsitektur aplikasi web modern, strategi MVP startup digital, dan tutorial pemrograman berbahasa Indonesia oleh tim KanaKoding.',
+      canonicalPath: '/blog',
+      ogType: 'website',
+    });
   }, []);
 
   const filteredPosts = BLOG_POSTS.filter((post) => {
@@ -37,6 +48,15 @@ export const BlogPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#0F0704] text-[#F7F1EB] pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="text-xs font-mono text-[#A89482] flex items-center gap-2">
+          <Link to="/" className="hover:text-amber-400 transition-colors">
+            Beranda
+          </Link>
+          <span>/</span>
+          <span className="text-amber-400">Blog &amp; Artikel</span>
+        </nav>
+
         {/* Blog Hero Header */}
         <div className="relative rounded-[8px] bg-[#180C06] border border-amber-500/25 p-8 sm:p-12 overflow-hidden">
           <div
@@ -53,8 +73,9 @@ export const BlogPage: React.FC = () => {
                 Wawasan Engineering, Bisnis Digital &amp; Komunitas
               </h1>
               <p className="text-[#D5C7B8] text-base leading-relaxed">
-                Artikel teknis, panduan membangun produk startup, dan catatan pembelajaran
-                dari tim serta komunitas developer KanaKoding.
+                Artikel teknis mendalam, panduan membangun produk startup, dan studi kasus
+                transformasi digital yang ditulis serta ditinjau oleh praktisi engineer
+                KanaKoding.
               </p>
             </div>
 
@@ -67,6 +88,7 @@ export const BlogPage: React.FC = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Cari artikel, topik, atau tag..."
+                  aria-label="Cari artikel blog"
                   className="w-full pl-11 pr-4 py-3 rounded-[8px] bg-[#100703] border border-white/15 text-sm text-white placeholder-[#8B7968] focus:outline-none focus:border-amber-500 transition-colors"
                 />
               </div>
@@ -74,7 +96,10 @@ export const BlogPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Featured Article Spotlight (shown when no filter/search active) */}
+        {/* AdSense Compliant Top Banner Slot (Auto-hidden until enabled) */}
+        <AdUnit slotId={ADSENSE_CONFIG.slots.blogTopBanner} format="horizontal" />
+
+        {/* Featured Article Spotlight */}
         {selectedCategory === 'Semua' && !searchQuery.trim() && featuredPost && (
           <Link
             to={`/blog/${featuredPost.slug}`}
@@ -150,7 +175,7 @@ export const BlogPage: React.FC = () => {
             ))}
           </div>
           <span className="text-xs font-mono text-[#A89482]">
-            {filteredPosts.length} Artikel Tersedia
+            {filteredPosts.length} Artikel Terkurasi
           </span>
         </div>
 
@@ -166,7 +191,7 @@ export const BlogPage: React.FC = () => {
                 setSelectedCategory('Semua');
                 setSearchQuery('');
               }}
-              className="px-4 py-2 rounded-[8px] text-xs font-semibold bg-amber-500 text-[#1A0B05] cursor-pointer"
+              className="px-4 py-2 rounded-[8px] text-xs font-semibold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
             >
               Reset Filter
             </button>
@@ -239,25 +264,29 @@ export const BlogPage: React.FC = () => {
           </div>
         )}
 
-        {/* Developer Info Box: How to Add Blog Posts */}
+        {/* Editorial Standards Notice (E-E-A-T Trust Signal for Google AdSense) */}
         <div className="p-6 rounded-[8px] bg-[#140904] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
             <div className="p-2.5 rounded-[8px] bg-amber-500/15 text-amber-400 shrink-0 mt-0.5">
-              <Terminal className="w-5 h-5" />
+              <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
               <h4 className="text-sm font-bold text-white">
-                Sistem Blog Berbasis Markdown Otomatis
+                Standar Kualitas &amp; Kurasi Redaksi KanaKoding
               </h4>
-              <p className="text-xs text-[#B5A392] mt-0.5">
-                Untuk menambahkan artikel baru, cukup buat file{' '}
-                <code className="text-amber-300 bg-white/5 px-1.5 py-0.5 rounded-[8px]">
-                  src/content/blog/nama-artikel.md
-                </code>{' '}
-                dan halaman blog akan otomatis memperbarui daftar artikel.
+              <p className="text-xs text-[#B5A392] mt-0.5 leading-relaxed">
+                Seluruh artikel dan tutorial pemrograman di KanaKoding ditulis secara orisinal
+                dan diverifikasi oleh praktisi rekayasa perangkat lunak kami untuk menjamin
+                akurasi teknis.
               </p>
             </div>
           </div>
+          <Link
+            to="/disclaimer"
+            className="px-4 py-2 rounded-[8px] text-xs font-semibold bg-white/5 hover:bg-white/10 text-amber-300 border border-white/10 shrink-0"
+          >
+            Pedoman Editorial
+          </Link>
         </div>
       </div>
     </div>

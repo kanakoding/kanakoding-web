@@ -186,16 +186,24 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#9E8A78]">
+        {/* Bottom Copyright & Legal Links (AdSense Required) */}
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#9E8A78]">
           <div className="flex items-center gap-2">
             <Code2 className="w-4 h-4 text-amber-500" />
             <span>
               &copy; {new Date().getFullYear()} <strong className="text-[#E5D9CE]">KanaKoding</strong> — {BRAND_INFO.tagline}. All rights reserved.
             </span>
           </div>
-          <div className="flex items-center gap-6">
-            <span>Menuju Indonesia Industri 4.0</span>
+          <div className="flex flex-wrap items-center justify-center gap-5">
+            <Link to="/privasi" className="hover:text-amber-400 transition-colors">
+              Kebijakan Privasi
+            </Link>
+            <Link to="/tos" className="hover:text-amber-400 transition-colors">
+              Syarat &amp; Ketentuan (ToS)
+            </Link>
+            <Link to="/disclaimer" className="hover:text-amber-400 transition-colors">
+              Disclaimer &amp; Editorial
+            </Link>
           </div>
         </div>
       </div>

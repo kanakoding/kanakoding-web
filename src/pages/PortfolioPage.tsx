@@ -8,8 +8,10 @@ import {
   Sparkles,
   ExternalLink,
 } from 'lucide-react';
-import { PORTFOLIO_ITEMS, PortfolioItem } from '../data/siteData';
+import { BRAND_INFO, PORTFOLIO_ITEMS, PortfolioItem } from '../data/siteData';
 import { PortfolioModal } from '../components/PortfolioModal';
+import { updatePageSeo } from '../utils/seo';
+import { smoothScrollToY } from '../utils/smoothScroll';
 
 export const PortfolioPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
@@ -17,7 +19,14 @@ export const PortfolioPage: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollToY(0, 500);
+    updatePageSeo({
+      title: `Portofolio & Studi Kasus — ${BRAND_INFO.name} (${BRAND_INFO.tagline})`,
+      description:
+        'Studi kasus proyek pengembangan aplikasi web, sistem enterprise multifinance, dan marketplace properti yang dikerjakan oleh tim KanaKoding.',
+      canonicalPath: '/portofolio',
+      ogType: 'website',
+    });
   }, []);
 
   const categories = [

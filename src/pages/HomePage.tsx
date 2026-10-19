@@ -29,6 +29,7 @@ import {
 import { BLOG_POSTS } from '../data/blogData';
 import { PortfolioModal } from '../components/PortfolioModal';
 import { smoothScrollToElement } from '../utils/smoothScroll';
+import { updatePageSeo } from '../utils/seo';
 
 export const HomePage: React.FC = () => {
   const [activeServiceId, setActiveServiceId] = useState<string>(SERVICES[0].id);
@@ -43,6 +44,15 @@ export const HomePage: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const location = useLocation();
+
+  useEffect(() => {
+    updatePageSeo({
+      title: `${BRAND_INFO.name} — ${BRAND_INFO.tagline} | Software House, Konsultan IT & Komunitas Developer`,
+      description: BRAND_INFO.description,
+      canonicalPath: '/',
+      ogType: 'website',
+    });
+  }, []);
 
   useEffect(() => {
     if (location.hash) {

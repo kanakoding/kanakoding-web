@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { PortfolioPage } from './pages/PortfolioPage';
 import { BlogPage } from './pages/BlogPage';
 import { BlogPostPage } from './pages/BlogPostPage';
+import { LegalPage } from './pages/LegalPage';
 
 export const App: React.FC = () => {
   return (
@@ -18,6 +19,9 @@ export const App: React.FC = () => {
             <Route path="/portofolio" element={<PortfolioPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/privasi" element={<LegalPage type="privasi" />} />
+            <Route path="/tos" element={<LegalPage type="tos" />} />
+            <Route path="/disclaimer" element={<LegalPage type="disclaimer" />} />
           </Routes>
         </main>
         <Footer />
