@@ -131,7 +131,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
                   onClose();
                   onInquire(project.title);
                 }}
-                className="px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all cursor-pointer shrink-0"
+                className="px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer shrink-0"
               >
                 Bangun Proyek Serupa
               </button>

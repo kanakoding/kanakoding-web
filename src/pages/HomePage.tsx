@@ -123,7 +123,7 @@ export const HomePage: React.FC = () => {
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.1]">
                 Wujudkan Ekosistem{' '}
-                <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-500 bg-clip-text text-transparent">
+                <span className="text-amber-400">
                   Produk Digital
                 </span>{' '}
                 untuk Bisnis &amp; Startup Anda.
@@ -141,7 +141,7 @@ export const HomePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => smoothScrollToElement('portofolio', 850)}
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-xl shadow-amber-500/20 cursor-pointer"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
                 >
                   <span>Eksplorasi Portofolio</span>
                   <ArrowRight className="w-4 h-4" />
@@ -372,7 +372,7 @@ export const HomePage: React.FC = () => {
                   onClick={() => setActiveServiceId(service.id)}
                   className={`flex items-center gap-3 p-4 rounded-[8px] text-left transition-all cursor-pointer border ${
                     isActive
-                      ? 'bg-gradient-to-br from-amber-500/20 to-orange-600/10 border-amber-500 text-white shadow-lg shadow-amber-500/10'
+                      ? 'bg-[#26130A] border-amber-500 text-white'
                       : 'bg-[#1B0D07] border-white/10 text-[#C7B6A6] hover:border-white/25 hover:text-white'
                   }`}
                 >
@@ -447,7 +447,7 @@ export const HomePage: React.FC = () => {
                   {activeService.ctaLink.startsWith('/') ? (
                     <Link
                       to={activeService.ctaLink}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors"
                     >
                       <span>{activeService.ctaLabel}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -461,7 +461,7 @@ export const HomePage: React.FC = () => {
                           850
                         )
                       }
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all cursor-pointer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
                     >
                       <span>{activeService.ctaLabel}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -792,7 +792,7 @@ export const HomePage: React.FC = () => {
                         )}&body=${encodeURIComponent(
                           `Nama: ${formName}\nEmail: ${formEmail}\nTopik: ${formTopic}\n\nPesan:\n${formMessage}`
                         )}`}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05]"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors"
                       >
                         <Mail className="w-4 h-4" />
                         <span>Kirim via Email Client</span>
@@ -896,7 +896,7 @@ export const HomePage: React.FC = () => {
 
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
                     >
                       <Send className="w-4 h-4" />
                       <span>Kirim Pesan Konsultasi</span>

@@ -152,7 +152,7 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={() => handleSectionNavigate('kontak')}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-semibold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
           >
             <Terminal className="w-4 h-4" />
             <span>Diskusi Proyek</span>
@@ -232,7 +232,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => handleSectionNavigate('kontak')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] cursor-pointer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-semibold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
             >
               <span>Hubungi Kami</span>
               <ArrowUpRight className="w-4 h-4" />

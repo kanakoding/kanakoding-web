@@ -170,7 +170,7 @@ export const PortfolioPage: React.FC = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="rounded-[8px] bg-gradient-to-r from-[#241209] to-[#180C06] border border-amber-500/30 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="rounded-[8px] bg-[#1E0F08] border border-amber-500/30 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl font-bold text-white">
               Punya Ide Produk atau Kebutuhan Sistem Serupa?
@@ -183,7 +183,7 @@ export const PortfolioPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/#kontak')}
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors shrink-0 cursor-pointer"
           >
             <span>Mulai Diskusi Proyek</span>
             <ArrowUpRight className="w-4 h-4" />

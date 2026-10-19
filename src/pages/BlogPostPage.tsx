@@ -217,7 +217,7 @@ export const BlogPostPage: React.FC = () => {
         </div>
 
         {/* Consultation Banner inside Blog Post */}
-        <div className="mt-10 p-6 sm:p-8 rounded-[8px] bg-gradient-to-r from-[#241209] to-[#180C06] border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-10 p-6 sm:p-8 rounded-[8px] bg-[#1E0F08] border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center sm:text-left">
             <h3 className="text-xl font-bold text-white">
               Ingin Menerapkan Strategi Ini pada Bisnis Anda?
@@ -229,7 +229,7 @@ export const BlogPostPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/#kontak')}
-            className="px-5 py-3 rounded-[8px] text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] shrink-0 cursor-pointer"
+            className="px-5 py-3 rounded-[8px] text-xs sm:text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors shrink-0 cursor-pointer"
           >
             Konsultasi Sekarang
           </button>
