@@ -21,13 +21,13 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#180C06] border border-amber-500/25 shadow-2xl text-[#F7F1EB]"
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-[8px] bg-[#180C06] border border-amber-500/25 shadow-2xl text-[#F7F1EB]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Close Bar */}
         <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-[#180C06]/90 backdrop-blur-md border-b border-white/10">
           <div className="flex items-center gap-2.5">
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-amber-500/15 text-amber-300 border border-amber-500/30">
+            <span className="px-3 py-1 rounded-[8px] text-xs font-mono font-medium bg-amber-500/15 text-amber-300 border border-amber-500/30">
               {project.category}
             </span>
             <span className="text-xs text-[#A89482] inline-flex items-center gap-1">
@@ -39,7 +39,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
             type="button"
             onClick={onClose}
             aria-label="Tutup detail portofolio"
-            className="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-[#C7B6A6] hover:text-white transition-colors cursor-pointer"
+            className="p-2 rounded-[8px] bg-white/5 hover:bg-white/10 text-[#C7B6A6] hover:text-white transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -71,7 +71,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="p-5 rounded-2xl bg-[#221109] border border-white/10 space-y-2">
+            <div className="p-5 rounded-[8px] bg-[#221109] border border-white/10 space-y-2">
               <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400">
                 Tantangan Bisnis
               </h4>
@@ -79,7 +79,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
                 {project.challenge}
               </p>
             </div>
-            <div className="p-5 rounded-2xl bg-[#221109] border border-amber-500/20 space-y-2">
+            <div className="p-5 rounded-[8px] bg-[#221109] border border-amber-500/20 space-y-2">
               <h4 className="text-xs font-mono uppercase tracking-wider text-amber-400">
                 Solusi KanaKoding
               </h4>
@@ -98,7 +98,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
               {project.highlights.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.03] border border-white/5"
+                  className="flex items-start gap-3 p-3.5 rounded-[8px] bg-white/[0.03] border border-white/5"
                 >
                   <CheckCircle2 className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <span className="text-sm text-[#E5D9CE]">{item}</span>
@@ -117,7 +117,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-[#E5D9CE]"
+                  className="px-2.5 py-1 rounded-[8px] text-xs font-mono bg-white/5 border border-white/10 text-[#E5D9CE]"
                 >
                   {tech}
                 </span>
@@ -131,7 +131,7 @@ export const PortfolioModal: React.FC<PortfolioModalProps> = ({
                   onClose();
                   onInquire(project.title);
                 }}
-                className="px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all cursor-pointer shrink-0"
+                className="px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all cursor-pointer shrink-0"
               >
                 Bangun Proyek Serupa
               </button>

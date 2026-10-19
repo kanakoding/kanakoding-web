@@ -107,14 +107,14 @@ export const HomePage: React.FC = () => {
         />
         {/* Layered Espresso & Warm Amber Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0F0704]/85 via-[#160A05]/88 to-[#0F0704]" />
-        <div className="pointer-events-none absolute top-1/4 -left-24 w-96 h-96 bg-amber-500/15 rounded-full blur-[130px]" />
-        <div className="pointer-events-none absolute bottom-10 right-0 w-[460px] h-[460px] bg-orange-600/10 rounded-full blur-[140px]" />
+        <div className="pointer-events-none absolute top-1/4 -left-24 w-96 h-96 bg-amber-500/15 rounded-[8px] blur-[130px]" />
+        <div className="pointer-events-none absolute bottom-10 right-0 w-[460px] h-[460px] bg-orange-600/10 rounded-[8px] blur-[140px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Hero Left Copy */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-wide">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-[8px] bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono tracking-wide">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>SOFTWARE HOUSE • IT CONSULTING • DEVELOPER ECOSYSTEM</span>
               </div>
@@ -138,14 +138,14 @@ export const HomePage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <a
                   href="#portofolio"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-xl shadow-amber-500/20"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-xl shadow-amber-500/20"
                 >
                   <span>Eksplorasi Portofolio</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href="#kontak"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-sm font-semibold bg-white/5 hover:bg-white/10 text-[#F7F1EB] border border-white/15 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[8px] text-sm font-semibold bg-white/5 hover:bg-white/10 text-[#F7F1EB] border border-white/15 transition-all"
                 >
                   <MessageSquare className="w-4 h-4 text-amber-400" />
                   <span>Konsultasi Gratis</span>
@@ -167,25 +167,25 @@ export const HomePage: React.FC = () => {
 
             {/* Hero Right Visual: KanaKoding Brand & Interactive Code Blueprint */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-[#180C06]/90 border border-amber-500/25 shadow-2xl overflow-hidden backdrop-blur-xl">
+              <div className="relative rounded-[8px] bg-[#180C06]/90 border border-amber-500/25 shadow-2xl overflow-hidden backdrop-blur-xl">
                 {/* Terminal Window Top Bar */}
                 <div className="flex items-center justify-between px-4 py-3 bg-[#221109] border-b border-white/10">
                   <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-rose-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-amber-400/80" />
-                    <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
+                    <span className="w-3 h-3 rounded-[8px] bg-rose-500/80" />
+                    <span className="w-3 h-3 rounded-[8px] bg-amber-400/80" />
+                    <span className="w-3 h-3 rounded-[8px] bg-emerald-500/80" />
                   </div>
                   <span className="text-xs font-mono text-[#A89482]">
                     kanakoding.config.ts
                   </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-[8px] bg-amber-500/20 text-amber-300">
                     v2.0
                   </span>
                 </div>
 
                 {/* Brand Visual Banner */}
                 <div className="relative p-6 pb-5 border-b border-white/10 bg-gradient-to-br from-[#231109] to-[#140904] flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-[#F7F1EB] p-2.5 shrink-0 shadow-lg flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-[8px] bg-[#F7F1EB] p-2.5 shrink-0 shadow-lg flex items-center justify-center">
                     <img
                       src="/assets/img/logo.png"
                       alt="Logo KanaKoding"
@@ -257,14 +257,14 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Visual Collage with Real Assets */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden border border-amber-500/20 shadow-2xl">
+              <div className="relative rounded-[8px] overflow-hidden border border-amber-500/20 shadow-2xl">
                 <img
                   src="/assets/img/background4.jpg"
                   alt="Tim Developer KanaKoding"
                   className="w-full h-[380px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#120804] via-[#120804]/30 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 p-5 rounded-2xl bg-[#180C06]/90 backdrop-blur-md border border-amber-500/25">
+                <div className="absolute bottom-5 left-5 right-5 p-5 rounded-[8px] bg-[#180C06]/90 backdrop-blur-md border border-amber-500/25">
                   <p className="text-xs font-mono uppercase tracking-wider text-amber-400 mb-1">
                     Visi Ekosistem Kami
                   </p>
@@ -304,7 +304,7 @@ export const HomePage: React.FC = () => {
 
               {/* 3 Value Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-[#180C06] border border-white/10">
+                <div className="p-4 rounded-[8px] bg-[#180C06] border border-white/10">
                   <div className="text-amber-400 font-mono text-xs font-semibold mb-1">
                     01 // SOLUTIF
                   </div>
@@ -313,7 +313,7 @@ export const HomePage: React.FC = () => {
                     Teknologi yang dirancang untuk menjawab target operasional &amp; konversi.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#180C06] border border-white/10">
+                <div className="p-4 rounded-[8px] bg-[#180C06] border border-white/10">
                   <div className="text-amber-400 font-mono text-xs font-semibold mb-1">
                     02 // KOLABORATIF
                   </div>
@@ -322,7 +322,7 @@ export const HomePage: React.FC = () => {
                     Didukung ekosistem talenta engineer dan budaya berbagi ilmu terbuka.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#180C06] border border-white/10">
+                <div className="p-4 rounded-[8px] bg-[#180C06] border border-white/10">
                   <div className="text-amber-400 font-mono text-xs font-semibold mb-1">
                     03 // MODERN
                   </div>
@@ -365,14 +365,14 @@ export const HomePage: React.FC = () => {
                   key={service.id}
                   type="button"
                   onClick={() => setActiveServiceId(service.id)}
-                  className={`flex items-center gap-3 p-4 rounded-2xl text-left transition-all cursor-pointer border ${
+                  className={`flex items-center gap-3 p-4 rounded-[8px] text-left transition-all cursor-pointer border ${
                     isActive
                       ? 'bg-gradient-to-br from-amber-500/20 to-orange-600/10 border-amber-500 text-white shadow-lg shadow-amber-500/10'
                       : 'bg-[#1B0D07] border-white/10 text-[#C7B6A6] hover:border-white/25 hover:text-white'
                   }`}
                 >
                   <div
-                    className={`p-2.5 rounded-xl shrink-0 ${
+                    className={`p-2.5 rounded-[8px] shrink-0 ${
                       isActive
                         ? 'bg-amber-500 text-[#1A0B05]'
                         : 'bg-white/5 text-amber-400'
@@ -392,7 +392,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Active Service Spotlight Card */}
-          <div className="rounded-3xl bg-[#1B0D07] border border-amber-500/25 overflow-hidden shadow-2xl">
+          <div className="rounded-[8px] bg-[#1B0D07] border border-amber-500/25 overflow-hidden shadow-2xl">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               <div className="lg:col-span-5 relative min-h-[280px] lg:min-h-full">
                 <img
@@ -402,7 +402,7 @@ export const HomePage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#1B0D07]/30 to-[#1B0D07]" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#120804]/90 text-amber-300 border border-amber-500/40 backdrop-blur-md">
+                  <span className="px-3 py-1 rounded-[8px] text-xs font-mono font-semibold bg-[#120804]/90 text-amber-300 border border-amber-500/40 backdrop-blur-md">
                     {activeService.badge}
                   </span>
                 </div>
@@ -425,7 +425,7 @@ export const HomePage: React.FC = () => {
                       {activeService.deliverables.map((item) => (
                         <div
                           key={item}
-                          className="flex items-start gap-2.5 p-3 rounded-xl bg-[#120804]/70 border border-white/5"
+                          className="flex items-start gap-2.5 p-3 rounded-[8px] bg-[#120804]/70 border border-white/5"
                         >
                           <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
                           <span className="text-xs sm:text-sm text-[#E5D9CE]">{item}</span>
@@ -442,7 +442,7 @@ export const HomePage: React.FC = () => {
                   {activeService.ctaLink.startsWith('/') ? (
                     <Link
                       to={activeService.ctaLink}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all"
                     >
                       <span>{activeService.ctaLabel}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -450,7 +450,7 @@ export const HomePage: React.FC = () => {
                   ) : (
                     <a
                       href={activeService.ctaLink}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all"
                     >
                       <span>{activeService.ctaLabel}</span>
                       <ArrowRight className="w-4 h-4" />
@@ -489,7 +489,7 @@ export const HomePage: React.FC = () => {
                   key={cat}
                   type="button"
                   onClick={() => setActivePortfolioCategory(cat)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                  className={`px-3.5 py-2 rounded-[8px] text-xs font-medium transition-all cursor-pointer ${
                     activePortfolioCategory === cat
                       ? 'bg-amber-500 text-[#1A0B05] font-bold shadow-md shadow-amber-500/20'
                       : 'bg-[#180C06] text-[#C7B6A6] border border-white/10 hover:border-amber-500/30 hover:text-white'
@@ -507,7 +507,7 @@ export const HomePage: React.FC = () => {
               <article
                 key={item.id}
                 onClick={() => setSelectedProject(item)}
-                className="group rounded-3xl bg-[#180C06] border border-white/10 hover:border-amber-500/40 overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col cursor-pointer"
+                className="group rounded-[8px] bg-[#180C06] border border-white/10 hover:border-amber-500/40 overflow-hidden transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col cursor-pointer"
               >
                 {/* Image Wrapper */}
                 <div className="relative h-64 sm:h-72 overflow-hidden bg-[#0E0603] border-b border-white/10">
@@ -518,12 +518,12 @@ export const HomePage: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#180C06] via-transparent to-black/20 opacity-85" />
                   <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#120804]/90 text-amber-300 border border-amber-500/30 backdrop-blur-md">
+                    <span className="px-3 py-1 rounded-[8px] text-xs font-mono font-medium bg-[#120804]/90 text-amber-300 border border-amber-500/30 backdrop-blur-md">
                       {item.category}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="px-2.5 py-1 rounded-lg text-xs font-mono bg-black/70 text-[#E5D9CE] backdrop-blur-md">
+                    <span className="px-2.5 py-1 rounded-[8px] text-xs font-mono bg-black/70 text-[#E5D9CE] backdrop-blur-md">
                       {item.year}
                     </span>
                   </div>
@@ -548,7 +548,7 @@ export const HomePage: React.FC = () => {
                       {item.techStack.slice(0, 3).map((tech) => (
                         <span
                           key={tech}
-                          className="px-2.5 py-0.5 rounded-md text-[11px] font-mono bg-white/5 text-[#D5C7B8] border border-white/5"
+                          className="px-2.5 py-0.5 rounded-[8px] text-[11px] font-mono bg-white/5 text-[#D5C7B8] border border-white/5"
                         >
                           {tech}
                         </span>
@@ -567,7 +567,7 @@ export const HomePage: React.FC = () => {
           <div className="mt-10 text-center">
             <Link
               to="/portofolio"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl text-sm font-semibold bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-[8px] text-sm font-semibold bg-white/5 hover:bg-white/10 text-amber-300 border border-amber-500/30 transition-all"
             >
               <Layers className="w-4 h-4" />
               <span>Buka Halaman Portofolio Lengkap</span>
@@ -597,7 +597,7 @@ export const HomePage: React.FC = () => {
             {WORKFLOW_STEPS.map((wf) => (
               <div
                 key={wf.step}
-                className="p-6 rounded-3xl bg-[#1B0D07] border border-white/10 hover:border-amber-500/30 transition-all flex flex-col justify-between space-y-5"
+                className="p-6 rounded-[8px] bg-[#1B0D07] border border-white/10 hover:border-amber-500/30 transition-all flex flex-col justify-between space-y-5"
               >
                 <div className="space-y-3">
                   <span className="inline-block text-3xl font-bold font-mono text-amber-400/90">
@@ -638,7 +638,7 @@ export const HomePage: React.FC = () => {
             </div>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500 hover:text-[#1A0B05] transition-all shrink-0"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30 hover:bg-amber-500 hover:text-[#1A0B05] transition-all shrink-0"
             >
               <span>Lihat Semua Artikel</span>
               <ArrowRight className="w-4 h-4" />
@@ -650,7 +650,7 @@ export const HomePage: React.FC = () => {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="group rounded-3xl bg-[#180C06] border border-white/10 hover:border-amber-500/40 overflow-hidden flex flex-col transition-all hover:-translate-y-1 shadow-lg"
+                className="group rounded-[8px] bg-[#180C06] border border-white/10 hover:border-amber-500/40 overflow-hidden flex flex-col transition-all hover:-translate-y-1 shadow-lg"
               >
                 <div className="relative h-48 overflow-hidden bg-[#0E0603]">
                   <img
@@ -659,7 +659,7 @@ export const HomePage: React.FC = () => {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-medium bg-[#120804]/90 text-amber-300 border border-amber-500/30">
+                    <span className="px-2.5 py-1 rounded-[8px] text-[11px] font-mono font-medium bg-[#120804]/90 text-amber-300 border border-amber-500/30">
                       {post.category}
                     </span>
                   </div>
@@ -719,9 +719,9 @@ export const HomePage: React.FC = () => {
               </p>
 
               {/* Brand Quote Card */}
-              <div className="p-6 rounded-3xl bg-[#1B0D07] border border-amber-500/25 space-y-4">
+              <div className="p-6 rounded-[8px] bg-[#1B0D07] border border-amber-500/25 space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-[#F7F1EB] p-2 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-[8px] bg-[#F7F1EB] p-2 flex items-center justify-center shrink-0">
                     <img
                       src="/assets/img/logo.png"
                       alt="KanaKoding"
@@ -758,10 +758,10 @@ export const HomePage: React.FC = () => {
 
             {/* Right Interactive Contact Form */}
             <div className="lg:col-span-7">
-              <div className="p-6 sm:p-10 rounded-3xl bg-[#180C06] border border-white/10 shadow-2xl">
+              <div className="p-6 sm:p-10 rounded-[8px] bg-[#180C06] border border-white/10 shadow-2xl">
                 {formSubmitted ? (
                   <div className="py-8 text-center space-y-5">
-                    <div className="w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto">
+                    <div className="w-16 h-16 rounded-[8px] bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
                     <div className="space-y-2 max-w-md mx-auto">
@@ -781,7 +781,7 @@ export const HomePage: React.FC = () => {
                         )}&body=${encodeURIComponent(
                           `Nama: ${formName}\nEmail: ${formEmail}\nTopik: ${formTopic}\n\nPesan:\n${formMessage}`
                         )}`}
-                        className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05]"
+                        className="inline-flex items-center gap-2 px-5 py-3 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05]"
                       >
                         <Mail className="w-4 h-4" />
                         <span>Kirim via Email Client</span>
@@ -794,7 +794,7 @@ export const HomePage: React.FC = () => {
                           setFormEmail('');
                           setFormMessage('');
                         }}
-                        className="px-4 py-3 rounded-xl text-sm font-medium bg-white/5 hover:bg-white/10 text-[#E5D9CE] border border-white/10 cursor-pointer"
+                        className="px-4 py-3 rounded-[8px] text-sm font-medium bg-white/5 hover:bg-white/10 text-[#E5D9CE] border border-white/10 cursor-pointer"
                       >
                         Tulis Pesan Baru
                       </button>
@@ -817,7 +817,7 @@ export const HomePage: React.FC = () => {
                           value={formName}
                           onChange={(e) => setFormName(e.target.value)}
                           placeholder="Nama Anda atau Perusahaan"
-                          className="w-full px-4 py-3 rounded-xl bg-[#100703] border border-white/15 text-white placeholder-[#7A6858] text-sm focus:outline-none focus:border-amber-500 transition-colors"
+                          className="w-full px-4 py-3 rounded-[8px] bg-[#100703] border border-white/15 text-white placeholder-[#7A6858] text-sm focus:outline-none focus:border-amber-500 transition-colors"
                         />
                       </div>
                       <div>
@@ -834,7 +834,7 @@ export const HomePage: React.FC = () => {
                           value={formEmail}
                           onChange={(e) => setFormEmail(e.target.value)}
                           placeholder="nama@perusahaan.com"
-                          className="w-full px-4 py-3 rounded-xl bg-[#100703] border border-white/15 text-white placeholder-[#7A6858] text-sm focus:outline-none focus:border-amber-500 transition-colors"
+                          className="w-full px-4 py-3 rounded-[8px] bg-[#100703] border border-white/15 text-white placeholder-[#7A6858] text-sm focus:outline-none focus:border-amber-500 transition-colors"
                         />
                       </div>
                     </div>
@@ -850,7 +850,7 @@ export const HomePage: React.FC = () => {
                         id="contact-topic"
                         value={formTopic}
                         onChange={(e) => setFormTopic(e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl bg-[#100703] border border-white/15 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-[8px] bg-[#100703] border border-white/15 text-white text-sm focus:outline-none focus:border-amber-500 transition-colors"
                       >
                         <option value="Project Development">
                           Project Development (Web / Mobile App / Compro)
@@ -879,13 +879,13 @@ export const HomePage: React.FC = () => {
                         value={formMessage}
                         onChange={(e) => setFormMessage(e.target.value)}
                         placeholder="Jelaskan secara singkat tujuan proyek, fitur yang diinginkan, atau jadwal yang Anda targetkan..."
-                        className="w-full px-4 py-3 rounded-xl bg-[#100703] border border-white/15 text-white placeholder-[#7A6858] text-sm focus:outline-none focus:border-amber-500 transition-colors"
+                        className="w-full px-4 py-3 rounded-[8px] bg-[#100703] border border-white/15 text-white placeholder-[#7A6858] text-sm focus:outline-none focus:border-amber-500 transition-colors"
                       />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-lg shadow-amber-500/20 cursor-pointer"
                     >
                       <Send className="w-4 h-4" />
                       <span>Kirim Pesan Konsultasi</span>

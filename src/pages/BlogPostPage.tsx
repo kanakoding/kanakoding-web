@@ -23,7 +23,7 @@ function renderMarkdownBlocks(markdown: string) {
       return (
         <pre
           key={index}
-          className="my-5 p-4 sm:p-5 rounded-2xl bg-[#100703] border border-amber-500/20 overflow-x-auto text-xs sm:text-sm font-mono text-amber-200 leading-relaxed"
+          className="my-5 p-4 sm:p-5 rounded-[8px] bg-[#100703] border border-amber-500/20 overflow-x-auto text-xs sm:text-sm font-mono text-amber-200 leading-relaxed"
         >
           <code>{codeContent}</code>
         </pre>
@@ -90,7 +90,7 @@ function formatInlineMarkdown(text: string): string {
     .replace(/\*(.+?)\*/g, '<em class="text-amber-200 italic">$1</em>')
     .replace(
       /`(.+?)`/g,
-      '<code class="px-1.5 py-0.5 rounded bg-white/10 text-amber-300 font-mono text-sm">$1</code>'
+      '<code class="px-1.5 py-0.5 rounded-[8px] bg-white/10 text-amber-300 font-mono text-sm">$1</code>'
     );
 }
 
@@ -112,7 +112,7 @@ export const BlogPostPage: React.FC = () => {
         </p>
         <Link
           to="/blog"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-amber-500 text-[#1A0B05]"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05]"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Kembali ke Blog</span>
@@ -140,7 +140,7 @@ export const BlogPostPage: React.FC = () => {
         {/* Header Meta */}
         <div className="space-y-5 mb-8">
           <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
-            <span className="px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30">
+            <span className="px-3 py-1 rounded-[8px] bg-amber-500/15 text-amber-300 border border-amber-500/30">
               {post.category}
             </span>
             <span className="inline-flex items-center gap-1.5 text-[#A89482]">
@@ -163,7 +163,7 @@ export const BlogPostPage: React.FC = () => {
 
           <div className="pt-2 flex items-center justify-between border-y border-white/10 py-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300">
+              <div className="w-10 h-10 rounded-[8px] bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300">
                 <User className="w-5 h-5" />
               </div>
               <div>
@@ -179,7 +179,7 @@ export const BlogPostPage: React.FC = () => {
                   navigator.clipboard.writeText(window.location.href);
                 }
               }}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-[#E5D9CE] cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-[#E5D9CE] cursor-pointer"
               title="Salin Tautan Artikel"
             >
               <Share2 className="w-3.5 h-3.5 text-amber-400" />
@@ -189,7 +189,7 @@ export const BlogPostPage: React.FC = () => {
         </div>
 
         {/* Cover Image */}
-        <div className="rounded-3xl overflow-hidden border border-white/10 mb-10 bg-[#140904] max-h-[420px]">
+        <div className="rounded-[8px] overflow-hidden border border-white/10 mb-10 bg-[#140904] max-h-[420px]">
           <img
             src={post.coverImage}
             alt={post.title}
@@ -198,7 +198,7 @@ export const BlogPostPage: React.FC = () => {
         </div>
 
         {/* Article Body */}
-        <div className="p-6 sm:p-10 rounded-3xl bg-[#180C06] border border-white/10 shadow-xl">
+        <div className="p-6 sm:p-10 rounded-[8px] bg-[#180C06] border border-white/10 shadow-xl">
           {renderMarkdownBlocks(post.content)}
 
           {/* Tags */}
@@ -207,7 +207,7 @@ export const BlogPostPage: React.FC = () => {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg text-xs font-mono bg-white/5 border border-white/10 text-amber-300"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-[8px] text-xs font-mono bg-white/5 border border-white/10 text-amber-300"
               >
                 <Tag className="w-3 h-3" />
                 {tag}
@@ -217,7 +217,7 @@ export const BlogPostPage: React.FC = () => {
         </div>
 
         {/* Consultation Banner inside Blog Post */}
-        <div className="mt-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#241209] to-[#180C06] border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-10 p-6 sm:p-8 rounded-[8px] bg-gradient-to-r from-[#241209] to-[#180C06] border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center sm:text-left">
             <h3 className="text-xl font-bold text-white">
               Ingin Menerapkan Strategi Ini pada Bisnis Anda?
@@ -229,7 +229,7 @@ export const BlogPostPage: React.FC = () => {
           <button
             type="button"
             onClick={() => navigate('/#kontak')}
-            className="px-5 py-3 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] shrink-0 cursor-pointer"
+            className="px-5 py-3 rounded-[8px] text-xs sm:text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] shrink-0 cursor-pointer"
           >
             Konsultasi Sekarang
           </button>
@@ -244,7 +244,7 @@ export const BlogPostPage: React.FC = () => {
                 <Link
                   key={rel.slug}
                   to={`/blog/${rel.slug}`}
-                  className="group p-5 rounded-2xl bg-[#180C06] border border-white/10 hover:border-amber-500/40 transition-all flex flex-col justify-between space-y-4"
+                  className="group p-5 rounded-[8px] bg-[#180C06] border border-white/10 hover:border-amber-500/40 transition-all flex flex-col justify-between space-y-4"
                 >
                   <div className="space-y-2">
                     <span className="text-xs font-mono text-amber-400">

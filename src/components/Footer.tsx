@@ -19,7 +19,7 @@ export const Footer: React.FC = () => {
   return (
     <footer className="relative bg-[#0B0503] border-t border-amber-500/15 pt-16 pb-12 overflow-hidden">
       {/* Subtle ambient glow */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[560px] h-48 bg-amber-600/10 blur-[110px] rounded-full" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[560px] h-48 bg-amber-600/10 blur-[110px] rounded-[8px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
@@ -140,7 +140,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
+                className="p-2.5 rounded-[8px] bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -149,7 +149,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
+                className="p-2.5 rounded-[8px] bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -158,7 +158,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
+                className="p-2.5 rounded-[8px] bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -166,7 +166,7 @@ export const Footer: React.FC = () => {
             <button
               type="button"
               onClick={() => scrollToSection('kontak')}
-              className="w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-[#1A0B05] transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-[8px] text-xs font-semibold bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-[#1A0B05] transition-all cursor-pointer"
             >
               <span>Mulai Proyek</span>
               <ArrowUpRight className="w-3.5 h-3.5" />

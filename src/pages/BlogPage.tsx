@@ -38,14 +38,14 @@ export const BlogPage: React.FC = () => {
     <div className="min-h-screen bg-[#0F0704] text-[#F7F1EB] pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {/* Blog Hero Header */}
-        <div className="relative rounded-3xl bg-[#180C06] border border-amber-500/25 p-8 sm:p-12 overflow-hidden">
+        <div className="relative rounded-[8px] bg-[#180C06] border border-amber-500/25 p-8 sm:p-12 overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-15"
             style={{ backgroundImage: "url('/assets/img/bg-kk.jpg')" }}
           />
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-4 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-mono">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-[8px] bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-mono">
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>KANAKODING JOURNAL &amp; TECH BLOG</span>
               </div>
@@ -67,7 +67,7 @@ export const BlogPage: React.FC = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Cari artikel, topik, atau tag..."
-                  className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#100703] border border-white/15 text-sm text-white placeholder-[#8B7968] focus:outline-none focus:border-amber-500 transition-colors"
+                  className="w-full pl-11 pr-4 py-3 rounded-[8px] bg-[#100703] border border-white/15 text-sm text-white placeholder-[#8B7968] focus:outline-none focus:border-amber-500 transition-colors"
                 />
               </div>
             </div>
@@ -78,7 +78,7 @@ export const BlogPage: React.FC = () => {
         {selectedCategory === 'Semua' && !searchQuery.trim() && featuredPost && (
           <Link
             to={`/blog/${featuredPost.slug}`}
-            className="group block rounded-3xl bg-[#180C06] border border-amber-500/30 overflow-hidden shadow-2xl hover:border-amber-400 transition-all"
+            className="group block rounded-[8px] bg-[#180C06] border border-amber-500/30 overflow-hidden shadow-2xl hover:border-amber-400 transition-all"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12">
               <div className="lg:col-span-6 relative min-h-[260px] sm:min-h-[340px] bg-[#0E0603] overflow-hidden">
@@ -88,10 +88,10 @@ export const BlogPage: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500 text-[#1A0B05]">
+                  <span className="px-3 py-1 rounded-[8px] text-xs font-mono font-bold bg-amber-500 text-[#1A0B05]">
                     ARTIKEL UNGGULAN
                   </span>
-                  <span className="px-3 py-1 rounded-full text-xs font-mono bg-[#120804]/90 text-amber-300 border border-amber-500/30">
+                  <span className="px-3 py-1 rounded-[8px] text-xs font-mono bg-[#120804]/90 text-amber-300 border border-amber-500/30">
                     {featuredPost.category}
                   </span>
                 </div>
@@ -139,7 +139,7 @@ export const BlogPage: React.FC = () => {
                 key={category}
                 type="button"
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-[8px] text-xs sm:text-sm font-medium transition-all cursor-pointer ${
                   selectedCategory === category
                     ? 'bg-amber-500 text-[#1A0B05] font-bold'
                     : 'bg-[#180C06] text-[#C7B6A6] border border-white/10 hover:border-amber-500/30 hover:text-white'
@@ -156,7 +156,7 @@ export const BlogPage: React.FC = () => {
 
         {/* Articles Grid */}
         {filteredPosts.length === 0 ? (
-          <div className="p-12 rounded-3xl bg-[#180C06] border border-white/10 text-center space-y-3">
+          <div className="p-12 rounded-[8px] bg-[#180C06] border border-white/10 text-center space-y-3">
             <p className="text-lg font-semibold text-white">
               Tidak ada artikel yang cocok dengan pencarian Anda.
             </p>
@@ -166,7 +166,7 @@ export const BlogPage: React.FC = () => {
                 setSelectedCategory('Semua');
                 setSearchQuery('');
               }}
-              className="px-4 py-2 rounded-xl text-xs font-semibold bg-amber-500 text-[#1A0B05] cursor-pointer"
+              className="px-4 py-2 rounded-[8px] text-xs font-semibold bg-amber-500 text-[#1A0B05] cursor-pointer"
             >
               Reset Filter
             </button>
@@ -177,7 +177,7 @@ export const BlogPage: React.FC = () => {
               <Link
                 key={post.slug}
                 to={`/blog/${post.slug}`}
-                className="group rounded-3xl bg-[#180C06] border border-white/10 hover:border-amber-500/40 overflow-hidden flex flex-col transition-all hover:-translate-y-1 shadow-xl"
+                className="group rounded-[8px] bg-[#180C06] border border-white/10 hover:border-amber-500/40 overflow-hidden flex flex-col transition-all hover:-translate-y-1 shadow-xl"
               >
                 <div className="relative h-52 overflow-hidden bg-[#0E0603]">
                   <img
@@ -186,7 +186,7 @@ export const BlogPage: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3">
-                    <span className="px-3 py-1 rounded-full text-xs font-mono font-medium bg-[#120804]/90 text-amber-300 border border-amber-500/30">
+                    <span className="px-3 py-1 rounded-[8px] text-xs font-mono font-medium bg-[#120804]/90 text-amber-300 border border-amber-500/30">
                       {post.category}
                     </span>
                   </div>
@@ -219,7 +219,7 @@ export const BlogPage: React.FC = () => {
                       {post.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono bg-white/5 text-[#B5A392]"
+                          className="inline-flex items-center gap-1 px-2 py-0.5 rounded-[8px] text-[11px] font-mono bg-white/5 text-[#B5A392]"
                         >
                           <Tag className="w-2.5 h-2.5 text-amber-400" />
                           {tag}
@@ -240,9 +240,9 @@ export const BlogPage: React.FC = () => {
         )}
 
         {/* Developer Info Box: How to Add Blog Posts */}
-        <div className="p-6 rounded-2xl bg-[#140904] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-6 rounded-[8px] bg-[#140904] border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3.5">
-            <div className="p-2.5 rounded-xl bg-amber-500/15 text-amber-400 shrink-0 mt-0.5">
+            <div className="p-2.5 rounded-[8px] bg-amber-500/15 text-amber-400 shrink-0 mt-0.5">
               <Terminal className="w-5 h-5" />
             </div>
             <div>
@@ -251,7 +251,7 @@ export const BlogPage: React.FC = () => {
               </h4>
               <p className="text-xs text-[#B5A392] mt-0.5">
                 Untuk menambahkan artikel baru, cukup buat file{' '}
-                <code className="text-amber-300 bg-white/5 px-1.5 py-0.5 rounded">
+                <code className="text-amber-300 bg-white/5 px-1.5 py-0.5 rounded-[8px]">
                   src/content/blog/nama-artikel.md
                 </code>{' '}
                 dan halaman blog akan otomatis memperbarui daftar artikel.

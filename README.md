@@ -1,10 +1,11 @@
 # KanaKoding Web — Company Profile, Portfolio & Tech Blog
 
-Website resmi **KanaKoding** (*Your Digital Partner*) yang telah dimodernisasi menjadi aplikasi web berbasis **Vite + React + TypeScript + Tailwind CSS v4** dengan sistem **Blog berbasis Markdown** otomatis.
+Website resmi **KanaKoding** (_Digitally Yours_) yang telah dimodernisasi menjadi aplikasi web berbasis **Vite + React + TypeScript + Tailwind CSS v4** dengan sistem **Blog berbasis Markdown** otomatis.
 
 ## ✨ Fitur Utama
+
 - **Modern Company Profile**: Desain identitas visual khas KanaKoding (Espresso Dark `#0F0704` & `#1A0B05` dengan aksen Amber/Orange) menggunakan tipografi `Space Grotesk`, `Plus Jakarta Sans`, dan `JetBrains Mono`.
-- **Interactive Services Showcase**: Menampilkan 4 pilar layanan KanaKoding (*Project Development*, *Konsultasi Aplikasi & Bisnis Digital*, *Komunitas Developer*, serta *E-Learning & Tutorial*).
+- **Interactive Services Showcase**: Menampilkan 4 pilar layanan KanaKoding (_Project Development_, _Konsultasi Aplikasi & Bisnis Digital_, _Komunitas Developer_, serta _E-Learning & Tutorial_).
 - **Portofolio & Studi Kasus Interaktif (`/portofolio`)**: Menampilkan studi kasus proyek nyata (**PT. Wannamas Multi Finance**, **Lelang.co**, **KanaKoding Ecosystem**, dll.) lengkap dengan filter kategori dan modal detail studi kasus.
 - **Markdown Blog System (`/blog` & `/blog/:slug`)**: Dilengkapi pencarian artikel, filter kategori, estimasi waktu baca, dan pemuatan otomatis dari file `.md` menggunakan Vite `import.meta.glob`.
 - **Interactive Project Inquiry (`#kontak`)**: Formulir konsultasi proyek yang terhubung langsung dengan pembuatan draft email terstruktur.
@@ -26,7 +27,8 @@ npm run preview
 ```
 
 ## 📝 Cara Menambahkan Artikel Blog Baru
-Cukup tambahkan file `.md` baru di dalam folder `src/content/blog/` dengan *frontmatter* berikut:
+
+Cukup tambahkan file `.md` baru di dalam folder `src/content/blog/` dengan _frontmatter_ berikut:
 
 ```markdown
 ---
@@ -47,6 +49,7 @@ Tulis isi artikel dalam format Markdown di sini...
 ```
 
 ## 🗂️ Struktur Direktori
+
 - `public/assets/img/` — Aset logo, ikon, background, dan gambar portofolio asli KanaKoding.
 - `src/content/blog/` — Kumpulan artikel blog dalam format Markdown (`.md`).
 - `src/data/siteData.ts` — Data terpusat untuk Company Profile, Layanan, Portofolio, dan Alur Kerja.
