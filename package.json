@@ -2,7 +2,7 @@
   "name": "kanakoding-web",
   "private": true,
   "version": "2.0.0",
-  "description": "KanaKoding — Digital Partner, Software House, Tech Community & Blog",
+  "description": "KanaKoding — Digitally Yours | Software House, Tech Community & Blog",
   "type": "module",
   "scripts": {
     "dev": "vite",

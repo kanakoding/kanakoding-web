@@ -191,7 +191,7 @@ export const Footer: React.FC = () => {
           <div className="flex items-center gap-2">
             <Code2 className="w-4 h-4 text-amber-500" />
             <span>
-              &copy; {new Date().getFullYear()} <strong className="text-[#E5D9CE]">KanaKoding</strong> — Your Digital Partner. All rights reserved.
+              &copy; {new Date().getFullYear()} <strong className="text-[#E5D9CE]">KanaKoding</strong> — {BRAND_INFO.tagline}. All rights reserved.
             </span>
           </div>
           <div className="flex items-center gap-6">

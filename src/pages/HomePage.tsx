@@ -131,7 +131,7 @@ export const HomePage: React.FC = () => {
 
               <p className="text-base sm:text-lg text-[#D5C7B8] leading-relaxed max-w-2xl">
                 <strong className="text-white">KanaKoding</strong> —{' '}
-                <em className="text-amber-300 not-italic font-medium">Your Digital Partner</em>.
+                <em className="text-amber-300 not-italic font-medium">{BRAND_INFO.tagline}</em>.
                 Kami merancang aplikasi web &amp; mobile berkualitas industri, mendampingi validasi
                 MVP startup, serta menggerakkan komunitas dan edukasi pemrograman terbuka di
                 Indonesia.
@@ -198,7 +198,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs font-mono uppercase tracking-widest text-amber-400">
-                      Digital Partner &amp; Ecosystem
+                      {BRAND_INFO.tagline}
                     </div>
                     <h2 className="text-xl font-bold text-white mt-0.5">
                       KanaKoding Studio
@@ -744,7 +744,7 @@ export const HomePage: React.FC = () => {
                       {BRAND_INFO.subQuote}
                     </div>
                     <div className="text-xs text-amber-400">
-                      KanaKoding — Your Digital Partner
+                      KanaKoding — {BRAND_INFO.tagline}
                     </div>
                   </div>
                 </div>
