@@ -50,7 +50,7 @@ function renderMarkdownBlocks(markdown: string) {
       return (
         <pre
           key={index}
-          className="my-5 p-4 sm:p-5 rounded-[8px] bg-[#100703] border border-amber-500/20 overflow-x-auto text-xs sm:text-sm font-mono text-amber-200 leading-relaxed"
+          className="my-5 p-4 sm:p-5 rounded-[8px] bg-[#100703] border border-white/15 overflow-x-auto text-xs sm:text-sm font-mono text-amber-200 leading-relaxed"
         >
           <code>{codeContent}</code>
         </pre>
@@ -120,7 +120,7 @@ function formatInlineMarkdown(text: string): string {
     .replace(/\*(.+?)\*/g, '<em class="text-amber-200 italic">$1</em>')
     .replace(
       /`(.+?)`/g,
-      '<code class="px-1.5 py-0.5 rounded-[8px] bg-white/10 text-amber-300 font-mono text-sm">$1</code>'
+      '<code class="px-1.5 py-0.5 rounded-[8px] bg-[#221109] text-amber-300 font-mono text-sm">$1</code>'
     );
 }
 
@@ -138,7 +138,7 @@ export const BlogPostPage: React.FC = () => {
     smoothScrollToY(0, 500);
     if (post) {
       updatePageSeo({
-        title: `${post.title} — Blog ${BRAND_INFO.name}`,
+        title: `${post.title} — Jurnal ${BRAND_INFO.name}`,
         description: post.excerpt,
         canonicalPath: `/blog/${post.slug}`,
         ogType: 'article',
@@ -181,7 +181,7 @@ export const BlogPostPage: React.FC = () => {
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05]"
         >
           <ArrowLeft className="w-4 h-4" />
-          <span>Kembali ke Blog</span>
+          <span>Kembali ke Jurnal</span>
         </Link>
       </div>
     );
@@ -192,7 +192,6 @@ export const BlogPostPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#0F0704] text-[#F7F1EB] pt-28 pb-24">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb Navigation (AdSense & SEO Hierarchy) */}
         <nav
           aria-label="Breadcrumb"
           className="mb-6 flex flex-wrap items-center gap-2 text-xs font-mono text-[#A89482]"
@@ -202,29 +201,28 @@ export const BlogPostPage: React.FC = () => {
           </Link>
           <span>/</span>
           <Link to="/blog" className="hover:text-amber-400 transition-colors">
-            Blog
+            Jurnal &amp; Blog
           </Link>
           <span>/</span>
           <span className="text-amber-400">{post.category}</span>
         </nav>
 
-        {/* Header Meta */}
         <div className="space-y-5 mb-8">
           <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
-            <span className="px-3 py-1 rounded-[8px] bg-amber-500/15 text-amber-300 border border-amber-500/30">
+            <span className="px-3 py-1 rounded-[8px] bg-[#221109] text-amber-300 border border-amber-500/30">
               {post.category}
             </span>
-            <span className="inline-flex items-center gap-1.5 text-[#A89482]">
+            <span className="inline-flex items-center gap-1.5 text-[#B5A392]">
               <Calendar className="w-3.5 h-3.5 text-amber-400" />
               {post.date}
             </span>
-            <span className="inline-flex items-center gap-1.5 text-[#A89482]">
+            <span className="inline-flex items-center gap-1.5 text-[#B5A392]">
               <Clock className="w-3.5 h-3.5 text-amber-400" />
               {post.readTime}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+          <h1 className="text-[clamp(1.85rem,3.8vw,3rem)] font-bold text-white leading-tight">
             {post.title}
           </h1>
 
@@ -232,14 +230,14 @@ export const BlogPostPage: React.FC = () => {
             {post.excerpt}
           </p>
 
-          <div className="pt-2 flex items-center justify-between border-y border-white/10 py-4">
+          <div className="pt-2 flex items-center justify-between border-y border-white/12 py-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-[8px] bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300">
+              <div className="w-10 h-10 rounded-[8px] bg-[#221109] border border-amber-500/30 flex items-center justify-center text-amber-300">
                 <User className="w-5 h-5" />
               </div>
               <div>
                 <div className="text-sm font-bold text-white">{post.author}</div>
-                <div className="text-xs text-[#A89482]">{post.authorRole}</div>
+                <div className="text-xs text-[#B5A392]">{post.authorRole}</div>
               </div>
             </div>
 
@@ -250,7 +248,7 @@ export const BlogPostPage: React.FC = () => {
                   navigator.clipboard.writeText(window.location.href);
                 }
               }}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-[#E5D9CE] cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] bg-[#180C06] hover:bg-[#221109] border border-white/12 text-xs text-[#E5D9CE] cursor-pointer"
               title="Salin Tautan Artikel"
             >
               <Share2 className="w-3.5 h-3.5 text-amber-400" />
@@ -259,8 +257,7 @@ export const BlogPostPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Cover Image */}
-        <div className="rounded-[8px] overflow-hidden border border-white/10 mb-8 bg-[#140904] max-h-[420px]">
+        <div className="rounded-[8px] overflow-hidden border border-white/15 mb-8 bg-[#140904] max-h-[420px]">
           <img
             src={post.coverImage}
             alt={post.title}
@@ -268,11 +265,10 @@ export const BlogPostPage: React.FC = () => {
           />
         </div>
 
-        {/* Automatic Table of Contents (Daftar Isi) */}
         {headings.length > 0 && (
           <nav
             aria-label="Daftar Isi Artikel"
-            className="mb-8 p-5 sm:p-6 rounded-[8px] bg-[#140904] border border-amber-500/20"
+            className="mb-8 p-5 sm:p-6 rounded-[8px] bg-[#140904] border border-white/15"
           >
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-amber-400 mb-3">
               <List className="w-4 h-4" />
@@ -294,24 +290,21 @@ export const BlogPostPage: React.FC = () => {
           </nav>
         )}
 
-        {/* AdSense In-Article Slot (Auto-hidden until ADSENSE_CONFIG.enabled = true) */}
         <AdUnit
           slotId={ADSENSE_CONFIG.slots.blogInArticle}
           format="fluid"
           layout="in-article"
         />
 
-        {/* Article Body */}
-        <div className="p-6 sm:p-10 rounded-[8px] bg-[#180C06] border border-white/10 shadow-xl">
+        <div className="p-6 sm:p-10 rounded-[8px] bg-[#150A05] border border-white/15">
           {renderMarkdownBlocks(post.content)}
 
-          {/* Tags */}
-          <div className="mt-10 pt-6 border-t border-white/10 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-mono text-[#A89482] mr-1">Topik:</span>
+          <div className="mt-10 pt-6 border-t border-white/12 flex flex-wrap items-center gap-2">
+            <span className="text-xs font-mono text-[#B5A392] mr-1">Topik:</span>
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-[8px] text-xs font-mono bg-white/5 border border-white/10 text-amber-300"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-[8px] text-xs font-mono bg-[#1E0F08] border border-white/12 text-amber-300"
               >
                 <Tag className="w-3 h-3" />
                 {tag}
@@ -320,8 +313,7 @@ export const BlogPostPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Author & Editorial Trust Box (E-E-A-T Signal for Google AdSense) */}
-        <div className="mt-8 p-6 rounded-[8px] bg-[#140904] border border-white/10 flex flex-col sm:flex-row items-start gap-4">
+        <div className="mt-8 p-6 rounded-[8px] bg-[#140904] border border-white/12 flex flex-col sm:flex-row items-start gap-4">
           <div className="w-12 h-12 rounded-[8px] bg-[#F7F1EB] p-2 shrink-0 flex items-center justify-center">
             <img
               src="/assets/img/logo.png"
@@ -339,7 +331,7 @@ export const BlogPostPage: React.FC = () => {
               </div>
               <Link
                 to="/disclaimer"
-                className="inline-flex items-center gap-1 text-xs text-[#A89482] hover:text-amber-400"
+                className="inline-flex items-center gap-1 text-xs text-[#B5A392] hover:text-amber-400"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
                 <span>Terverifikasi secara Teknis</span>
@@ -353,17 +345,15 @@ export const BlogPostPage: React.FC = () => {
           </div>
         </div>
 
-        {/* AdSense Bottom Banner Slot */}
         <AdUnit
           slotId={ADSENSE_CONFIG.slots.blogBottomBanner}
           format="auto"
         />
 
-        {/* Consultation Banner inside Blog Post */}
-        <div className="mt-8 p-6 sm:p-8 rounded-[8px] bg-[#1E0F08] border border-amber-500/30 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-8 p-6 sm:p-8 rounded-[8px] bg-[#160B06] border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1.5 text-center sm:text-left">
             <h3 className="text-xl font-bold text-white">
-              Ingin Menerapkan Strategi Ini pada Bisnis Anda?
+              Ingin Menerapkan Arsitektur Ini pada Bisnis Anda?
             </h3>
             <p className="text-xs sm:text-sm text-[#C7B6A6]">
               Diskusikan kebutuhan pengembangan produk digital Anda bersama tim KanaKoding.
@@ -378,7 +368,6 @@ export const BlogPostPage: React.FC = () => {
           </button>
         </div>
 
-        {/* Related Posts */}
         {relatedPosts.length > 0 && (
           <div className="mt-14 space-y-6">
             <div className="flex items-center justify-between">
@@ -391,26 +380,28 @@ export const BlogPostPage: React.FC = () => {
                 <span>Semua Artikel</span>
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {relatedPosts.map((rel) => (
+            <div className="border-y border-white/15 divide-y divide-white/15">
+              {relatedPosts.map((rel, idx) => (
                 <Link
                   key={rel.slug}
                   to={`/blog/${rel.slug}`}
-                  className="group p-5 rounded-[8px] bg-[#180C06] border border-white/10 hover:border-amber-500/40 transition-all flex flex-col justify-between space-y-4"
+                  className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
                 >
-                  <div className="space-y-2">
-                    <span className="text-xs font-mono text-amber-400">
-                      {rel.category}
-                    </span>
-                    <h4 className="text-base font-bold text-white group-hover:text-amber-300 transition-colors">
+                  <div className="space-y-1.5 max-w-2xl">
+                    <div className="flex items-center gap-2 text-xs font-mono text-amber-400">
+                      <span>0{idx + 1}</span>
+                      <span>/</span>
+                      <span>{rel.category}</span>
+                    </div>
+                    <h4 className="text-base sm:text-lg font-bold text-white group-hover:text-amber-300 transition-colors">
                       {rel.title}
                     </h4>
-                    <p className="text-xs text-[#C7B6A6] line-clamp-2">
+                    <p className="text-xs sm:text-sm text-[#C7B6A6] line-clamp-2">
                       {rel.excerpt}
                     </p>
                   </div>
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-400">
-                    Baca Artikel <ArrowRight className="w-3.5 h-3.5" />
+                  <span className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-amber-400 shrink-0">
+                    Baca <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </Link>
               ))}

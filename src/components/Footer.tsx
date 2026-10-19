@@ -17,13 +17,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-[#0B0503] border-t border-amber-500/15 pt-16 pb-12 overflow-hidden">
-      {/* Subtle ambient glow */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[560px] h-48 bg-amber-600/10 blur-[110px] rounded-[8px]" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          {/* Brand Column */}
+    <footer className="bg-[#0B0503] border-t border-white/15 pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/12">
           <div className="lg:col-span-5 space-y-5">
             <button
               type="button"
@@ -39,7 +35,7 @@ export const Footer: React.FC = () => {
             <p className="text-[#C7B6A6] text-sm leading-relaxed max-w-md">
               {BRAND_INFO.description}
             </p>
-            <div className="flex flex-wrap items-center gap-4 text-xs text-[#A89482] pt-1">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-[#B5A392] pt-1">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="w-3.5 h-3.5 text-amber-400" />
                 {BRAND_INFO.location}
@@ -54,7 +50,6 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Navigation Column */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
               Navigasi
@@ -98,13 +93,12 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  Blog &amp; Artikel
+                  Jurnal &amp; Blog
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Services Column */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
               Layanan &amp; Ekosistem
@@ -141,7 +135,6 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* CTA & Socials Column */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
               Terhubung
@@ -152,7 +145,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="GitHub"
-                className="p-2.5 rounded-[8px] bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
+                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/12 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -161,7 +154,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="p-2.5 rounded-[8px] bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
+                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/12 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -170,7 +163,7 @@ export const Footer: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="p-2.5 rounded-[8px] bg-white/5 border border-white/10 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-all"
+                className="p-2.5 rounded-[8px] bg-[#160B06] border border-white/12 text-[#E5D9CE] hover:text-amber-400 hover:border-amber-500/40 transition-colors"
               >
                 <Facebook className="w-4 h-4" />
               </a>
@@ -178,7 +171,7 @@ export const Footer: React.FC = () => {
             <button
               type="button"
               onClick={() => scrollToSection('kontak')}
-              className="w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-[8px] text-xs font-semibold bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:bg-amber-500 hover:text-[#1A0B05] transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-[8px] text-xs font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors cursor-pointer"
             >
               <span>Mulai Proyek</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -186,8 +179,7 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Copyright & Legal Links (AdSense Required) */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#9E8A78]">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#A89482]">
           <div className="flex items-center gap-2">
             <Code2 className="w-4 h-4 text-amber-500" />
             <span>

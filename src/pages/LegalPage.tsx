@@ -48,14 +48,13 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
             <span>Kembali ke Beranda</span>
           </Link>
 
-          {/* Switcher between Legal Pages */}
           <div className="flex flex-wrap items-center gap-2">
             <Link
               to="/privasi"
               className={`px-3.5 py-2 rounded-[8px] text-xs font-medium transition-colors ${
                 type === 'privasi'
                   ? 'bg-amber-500 text-[#1A0B05] font-bold'
-                  : 'bg-[#180C06] text-[#C7B6A6] border border-white/10 hover:text-white'
+                  : 'bg-[#180C06] text-[#C7B6A6] border border-white/12 hover:text-white'
               }`}
             >
               Kebijakan Privasi
@@ -65,7 +64,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
               className={`px-3.5 py-2 rounded-[8px] text-xs font-medium transition-colors ${
                 type === 'tos'
                   ? 'bg-amber-500 text-[#1A0B05] font-bold'
-                  : 'bg-[#180C06] text-[#C7B6A6] border border-white/10 hover:text-white'
+                  : 'bg-[#180C06] text-[#C7B6A6] border border-white/12 hover:text-white'
               }`}
             >
               Syarat &amp; Ketentuan
@@ -75,7 +74,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
               className={`px-3.5 py-2 rounded-[8px] text-xs font-medium transition-colors ${
                 type === 'disclaimer'
                   ? 'bg-amber-500 text-[#1A0B05] font-bold'
-                  : 'bg-[#180C06] text-[#C7B6A6] border border-white/10 hover:text-white'
+                  : 'bg-[#180C06] text-[#C7B6A6] border border-white/12 hover:text-white'
               }`}
             >
               Disclaimer &amp; Editorial
@@ -83,18 +82,18 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
           </div>
         </div>
 
-        <article className="p-6 sm:p-10 rounded-[8px] bg-[#180C06] border border-white/10 space-y-6">
+        <article className="p-6 sm:p-10 rounded-[8px] bg-[#150A05] border border-white/15 space-y-6">
           {type === 'privasi' && (
             <>
-              <div className="flex items-center gap-3 pb-4 border-b border-white/10">
-                <div className="p-2.5 rounded-[8px] bg-amber-500/15 text-amber-400">
+              <div className="flex items-center gap-3 pb-4 border-b border-white/12">
+                <div className="p-2.5 rounded-[8px] bg-[#221109] text-amber-400 border border-amber-500/25">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-bold text-white">
                     Kebijakan Privasi (Privacy Policy)
                   </h1>
-                  <p className="text-xs text-[#A89482] mt-0.5">
+                  <p className="text-xs text-[#B5A392] mt-0.5">
                     Terakhir diperbarui: Oktober 2026 • Berlaku untuk kanakoding.com
                   </p>
                 </div>
@@ -174,15 +173,15 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
 
           {type === 'tos' && (
             <>
-              <div className="flex items-center gap-3 pb-4 border-b border-white/10">
-                <div className="p-2.5 rounded-[8px] bg-amber-500/15 text-amber-400">
+              <div className="flex items-center gap-3 pb-4 border-b border-white/12">
+                <div className="p-2.5 rounded-[8px] bg-[#221109] text-amber-400 border border-amber-500/25">
                   <FileText className="w-6 h-6" />
                 </div>
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-bold text-white">
                     Syarat &amp; Ketentuan Layanan (Terms of Service)
                   </h1>
-                  <p className="text-xs text-[#A89482] mt-0.5">
+                  <p className="text-xs text-[#B5A392] mt-0.5">
                     Terakhir diperbarui: Oktober 2026 • Berlaku untuk kanakoding.com
                   </p>
                 </div>
@@ -231,15 +230,15 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
 
           {type === 'disclaimer' && (
             <>
-              <div className="flex items-center gap-3 pb-4 border-b border-white/10">
-                <div className="p-2.5 rounded-[8px] bg-amber-500/15 text-amber-400">
+              <div className="flex items-center gap-3 pb-4 border-b border-white/12">
+                <div className="p-2.5 rounded-[8px] bg-[#221109] text-amber-400 border border-amber-500/25">
                   <Scale className="w-6 h-6" />
                 </div>
                 <div>
                   <h1 className="text-2xl sm:text-3xl font-bold text-white">
                     Disclaimer &amp; Pedoman Editorial
                   </h1>
-                  <p className="text-xs text-[#A89482] mt-0.5">
+                  <p className="text-xs text-[#B5A392] mt-0.5">
                     Terakhir diperbarui: Oktober 2026 • Standar Kualitas Konten KanaKoding
                   </p>
                 </div>
@@ -277,7 +276,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
             </>
           )}
 
-          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[#A89482]">
+          <div className="pt-6 border-t border-white/12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs text-[#B5A392]">
             <span>
               Pertanyaan terkait kebijakan ini? Hubungi kami di{' '}
               <a href={`mailto:${BRAND_INFO.email}`} className="text-amber-400 underline">
@@ -286,7 +285,7 @@ export const LegalPage: React.FC<LegalPageProps> = ({ type }) => {
             </span>
             <a
               href={`mailto:${BRAND_INFO.email}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[8px] bg-amber-500 text-[#1A0B05] font-semibold hover:bg-amber-400 transition-colors self-start sm:self-auto"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-[8px] bg-amber-500 text-[#1A0B05] font-bold hover:bg-amber-400 transition-colors self-start sm:self-auto"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Hubungi Redaksi</span>
