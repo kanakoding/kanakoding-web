@@ -2,18 +2,47 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowUpRight, Github, Instagram, Facebook, Terminal } from 'lucide-react';
 import { BRAND_INFO } from '../data/siteData';
+import { smoothScrollToElement } from '../utils/smoothScroll';
+
+const NAV_SECTIONS = [
+  { id: 'beranda', label: 'Beranda' },
+  { id: 'tentang', label: 'Tentang' },
+  { id: 'layanan', label: 'Layanan' },
+  { id: 'portofolio', label: 'Portofolio' },
+  { id: 'proses', label: 'Cara Kerja' },
+];
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('beranda');
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener('scroll', onScroll);
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      setScrolled(scrollY > 24);
+
+      if (location.pathname === '/') {
+        const checkIds = ['kontak', 'proses', 'portofolio', 'layanan', 'tentang', 'beranda'];
+        for (const id of checkIds) {
+          const el = document.getElementById(id);
+          if (el) {
+            const top = el.getBoundingClientRect().top;
+            if (top <= 160) {
+              setActiveSection(id);
+              break;
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [location.pathname]);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -21,14 +50,14 @@ export const Navbar: React.FC = () => {
 
   const handleSectionNavigate = (sectionId: string) => {
     setMobileOpen(false);
+    setActiveSection(sectionId);
+
     if (location.pathname !== '/') {
       navigate(`/#${sectionId}`);
       return;
     }
-    const el = document.getElementById(sectionId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+
+    smoothScrollToElement(sectionId, 850);
   };
 
   return (
@@ -41,55 +70,38 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
-        <Link
-          to="/"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="flex items-center gap-3 group focus:outline-none"
+        <button
+          type="button"
+          onClick={() => handleSectionNavigate('beranda')}
+          className="flex items-center gap-3 group focus:outline-none cursor-pointer"
         >
           <img
             src="/assets/img/logo-white.png"
             alt="KanaKoding"
             className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
-        </Link>
+        </button>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
-          <Link
-            to="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`px-3.5 py-2 rounded-[8px] text-sm font-medium transition-colors ${
-              location.pathname === '/' && !location.hash
-                ? 'text-amber-400 bg-amber-500/10'
-                : 'text-[#E5D9CE] hover:text-white hover:bg-white/5'
-            }`}
-          >
-            Beranda
-          </Link>
-          <button
-            type="button"
-            onClick={() => handleSectionNavigate('tentang')}
-            className="px-3.5 py-2 rounded-[8px] text-sm font-medium text-[#E5D9CE] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
-          >
-            Tentang
-          </button>
-          <button
-            type="button"
-            onClick={() => handleSectionNavigate('layanan')}
-            className="px-3.5 py-2 rounded-[8px] text-sm font-medium text-[#E5D9CE] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
-          >
-            Layanan
-          </button>
-          <Link
-            to="/portofolio"
-            className={`px-3.5 py-2 rounded-[8px] text-sm font-medium transition-colors ${
-              location.pathname.startsWith('/portofolio')
-                ? 'text-amber-400 bg-amber-500/10'
-                : 'text-[#E5D9CE] hover:text-white hover:bg-white/5'
-            }`}
-          >
-            Portofolio
-          </Link>
+        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5">
+          {NAV_SECTIONS.map((item) => {
+            const isActive = location.pathname === '/' && activeSection === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleSectionNavigate(item.id)}
+                className={`px-3.5 py-2 rounded-[8px] text-sm font-medium transition-colors cursor-pointer ${
+                  isActive
+                    ? 'text-amber-400 bg-amber-500/10'
+                    : 'text-[#E5D9CE] hover:text-white hover:bg-white/5'
+                }`}
+              >
+                {item.label}
+              </button>
+            );
+          })}
+
           <Link
             to="/blog"
             className={`px-3.5 py-2 rounded-[8px] text-sm font-medium transition-colors flex items-center gap-1.5 ${
@@ -162,38 +174,29 @@ export const Navbar: React.FC = () => {
       {/* Mobile Drawer */}
       {mobileOpen && (
         <div className="md:hidden bg-[#160A05]/98 backdrop-blur-2xl border-b border-amber-500/20 px-4 pt-4 pb-6 mt-3 space-y-2">
-          <Link
-            to="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="block px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-amber-500/10 hover:text-amber-400"
-          >
-            Beranda
-          </Link>
-          <button
-            type="button"
-            onClick={() => handleSectionNavigate('tentang')}
-            className="w-full text-left px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-amber-500/10 hover:text-amber-400"
-          >
-            Tentang Kami
-          </button>
-          <button
-            type="button"
-            onClick={() => handleSectionNavigate('layanan')}
-            className="w-full text-left px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-amber-500/10 hover:text-amber-400"
-          >
-            Layanan
-          </button>
+          {NAV_SECTIONS.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => handleSectionNavigate(item.id)}
+              className="w-full text-left px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-amber-500/10 hover:text-amber-400 cursor-pointer"
+            >
+              {item.label}
+            </button>
+          ))}
+
           <Link
             to="/portofolio"
-            className="block px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-amber-500/10 hover:text-amber-400"
+            className="block px-4 py-2.5 rounded-[8px] text-sm font-mono text-amber-300 hover:bg-amber-500/10"
           >
-            Portofolio & Studi Kasus
+            &rarr; Buka Halaman Detail Portofolio
           </Link>
+
           <Link
             to="/blog"
             className="flex items-center justify-between px-4 py-2.5 rounded-[8px] text-base font-medium text-[#F7F1EB] hover:bg-amber-500/10 hover:text-amber-400"
           >
-            <span>Blog & Artikel</span>
+            <span>Blog &amp; Artikel</span>
             <span className="text-xs font-mono px-2 py-0.5 rounded-[8px] bg-amber-500/20 text-amber-300">
               Markdown Ready
             </span>
@@ -229,7 +232,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => handleSectionNavigate('kontak')}
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05]"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] cursor-pointer"
             >
               <span>Hubungi Kami</span>
               <ArrowUpRight className="w-4 h-4" />

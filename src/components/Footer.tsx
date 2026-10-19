@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Github, Instagram, Facebook, Mail, MapPin, ArrowUpRight, Code2 } from 'lucide-react';
 import { BRAND_INFO } from '../data/siteData';
+import { smoothScrollToElement } from '../utils/smoothScroll';
 
 export const Footer: React.FC = () => {
   const navigate = useNavigate();
@@ -12,8 +13,7 @@ export const Footer: React.FC = () => {
       navigate(`/#${id}`);
       return;
     }
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    smoothScrollToElement(id, 850);
   };
 
   return (
@@ -25,13 +25,17 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-5">
-            <Link to="/" className="inline-block">
+            <button
+              type="button"
+              onClick={() => scrollToSection('beranda')}
+              className="inline-block cursor-pointer"
+            >
               <img
                 src="/assets/img/logo-white.png"
                 alt="KanaKoding"
                 className="h-11 w-auto object-contain"
               />
-            </Link>
+            </button>
             <p className="text-[#C7B6A6] text-sm leading-relaxed max-w-md">
               {BRAND_INFO.description}
             </p>
@@ -57,9 +61,13 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm text-[#C7B6A6]">
               <li>
-                <Link to="/" className="hover:text-white transition-colors">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('beranda')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
                   Beranda
-                </Link>
+                </button>
               </li>
               <li>
                 <button
@@ -80,13 +88,17 @@ export const Footer: React.FC = () => {
                 </button>
               </li>
               <li>
-                <Link to="/portofolio" className="hover:text-white transition-colors">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('portofolio')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
                   Portofolio
-                </Link>
+                </button>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  Blog & Artikel
+                  Blog &amp; Artikel
                 </Link>
               </li>
             </ul>
@@ -95,7 +107,7 @@ export const Footer: React.FC = () => {
           {/* Services Column */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-mono uppercase tracking-widest text-amber-400">
-              Layanan & Ekosistem
+              Layanan &amp; Ekosistem
             </h4>
             <ul className="space-y-2.5 text-sm text-[#C7B6A6]">
               <li>
@@ -104,7 +116,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Custom Web & App Development
+                  Custom Web &amp; App Development
                 </button>
               </li>
               <li>
@@ -113,7 +125,7 @@ export const Footer: React.FC = () => {
                   onClick={() => scrollToSection('layanan')}
                   className="hover:text-white transition-colors cursor-pointer text-left"
                 >
-                  Konsultasi Startup & MVP
+                  Konsultasi Startup &amp; MVP
                 </button>
               </li>
               <li>
@@ -123,7 +135,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  E-Learning & Tutorial Gratis
+                  E-Learning &amp; Tutorial Gratis
                 </Link>
               </li>
             </ul>

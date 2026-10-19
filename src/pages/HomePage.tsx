@@ -29,6 +29,7 @@ import {
 } from '../data/siteData';
 import { BLOG_POSTS } from '../data/blogData';
 import { PortfolioModal } from '../components/PortfolioModal';
+import { smoothScrollToElement } from '../utils/smoothScroll';
 
 export const HomePage: React.FC = () => {
   const [activeServiceId, setActiveServiceId] = useState<string>(SERVICES[0].id);
@@ -48,9 +49,8 @@ export const HomePage: React.FC = () => {
     if (location.hash) {
       const id = location.hash.replace('#', '');
       setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+        smoothScrollToElement(id, 850);
+      }, 120);
     }
   }, [location.hash]);
 
@@ -71,8 +71,7 @@ export const HomePage: React.FC = () => {
     setFormMessage(
       `Halo Tim KanaKoding, saya tertarik mendiskusikan pembuatan aplikasi/website serupa "${projectTitle}" untuk bisnis kami.`
     );
-    const el = document.getElementById('kontak');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    smoothScrollToElement('kontak', 850);
   };
 
   const handleContactSubmit = (e: React.FormEvent) => {
@@ -99,7 +98,10 @@ export const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#0F0704] text-[#F7F1EB]">
       {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden border-b border-amber-500/15">
+      <section
+        id="beranda"
+        className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden border-b border-amber-500/15"
+      >
         {/* KanaKoding Signature Pattern Background */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 scale-105"
@@ -124,32 +126,34 @@ export const HomePage: React.FC = () => {
                 <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-500 bg-clip-text text-transparent">
                   Produk Digital
                 </span>{' '}
-                untuk Bisnis & Startup Anda.
+                untuk Bisnis &amp; Startup Anda.
               </h1>
 
               <p className="text-base sm:text-lg text-[#D5C7B8] leading-relaxed max-w-2xl">
                 <strong className="text-white">KanaKoding</strong> —{' '}
                 <em className="text-amber-300 not-italic font-medium">Your Digital Partner</em>.
-                Kami merancang aplikasi web & mobile berkualitas industri, mendampingi validasi
+                Kami merancang aplikasi web &amp; mobile berkualitas industri, mendampingi validasi
                 MVP startup, serta menggerakkan komunitas dan edukasi pemrograman terbuka di
                 Indonesia.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="#portofolio"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-xl shadow-amber-500/20"
+                <button
+                  type="button"
+                  onClick={() => smoothScrollToElement('portofolio', 850)}
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-[8px] text-sm font-bold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all shadow-xl shadow-amber-500/20 cursor-pointer"
                 >
                   <span>Eksplorasi Portofolio</span>
                   <ArrowRight className="w-4 h-4" />
-                </a>
-                <a
-                  href="#kontak"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[8px] text-sm font-semibold bg-white/5 hover:bg-white/10 text-[#F7F1EB] border border-white/15 transition-all"
+                </button>
+                <button
+                  type="button"
+                  onClick={() => smoothScrollToElement('kontak', 850)}
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-[8px] text-sm font-semibold bg-white/5 hover:bg-white/10 text-[#F7F1EB] border border-white/15 transition-all cursor-pointer"
                 >
                   <MessageSquare className="w-4 h-4 text-amber-400" />
                   <span>Konsultasi Gratis</span>
-                </a>
+                </button>
               </div>
 
               {/* Stats Strip */}
@@ -194,7 +198,7 @@ export const HomePage: React.FC = () => {
                   </div>
                   <div>
                     <div className="text-xs font-mono uppercase tracking-widest text-amber-400">
-                      Digital Partner & Ecosystem
+                      Digital Partner &amp; Ecosystem
                     </div>
                     <h2 className="text-xl font-bold text-white mt-0.5">
                       KanaKoding Studio
@@ -237,13 +241,14 @@ export const HomePage: React.FC = () => {
                 {/* Quick Links Footer inside Hero Card */}
                 <div className="px-5 py-3.5 bg-[#1C0E07] border-t border-white/10 flex items-center justify-between text-xs">
                   <span className="text-[#B5A392]">Siap berkolaborasi dengan tim kami?</span>
-                  <Link
-                    to="/portofolio"
-                    className="inline-flex items-center gap-1 font-semibold text-amber-400 hover:text-amber-300"
+                  <button
+                    type="button"
+                    onClick={() => smoothScrollToElement('portofolio', 850)}
+                    className="inline-flex items-center gap-1 font-semibold text-amber-400 hover:text-amber-300 cursor-pointer"
                   >
                     <span>Lihat Karya</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -448,13 +453,19 @@ export const HomePage: React.FC = () => {
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   ) : (
-                    <a
-                      href={activeService.ctaLink}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all"
+                    <button
+                      type="button"
+                      onClick={() =>
+                        smoothScrollToElement(
+                          activeService.ctaLink.replace('#', ''),
+                          850
+                        )
+                      }
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-[#1A0B05] hover:from-amber-400 hover:to-orange-500 transition-all cursor-pointer"
                     >
                       <span>{activeService.ctaLabel}</span>
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </button>
                   )}
                 </div>
               </div>
@@ -578,7 +589,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ================= PROSES KERJA KAMI (HOW WE WORK) ================= */}
-      <section className="py-20 bg-[#140904] border-y border-amber-500/15">
+      <section id="proses" className="py-20 bg-[#140904] border-y border-amber-500/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
             <div className="text-xs font-mono uppercase tracking-widest text-amber-400">
@@ -620,7 +631,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ================= BLOG & ARTIKEL TERBARU ================= */}
-      <section className="py-24 relative">
+      <section id="artikel" className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div className="space-y-3 max-w-2xl">
