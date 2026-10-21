@@ -51,3 +51,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #d97706;
 }
+
+@keyframes serviceProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
