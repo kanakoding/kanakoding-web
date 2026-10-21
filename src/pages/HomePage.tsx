@@ -295,27 +295,17 @@ export const HomePage: React.FC = () => {
 
       <section id="layanan" className="py-24 bg-[#130905] border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-            <div className="max-w-2xl space-y-3">
-              <div className="text-xs font-mono uppercase tracking-widest text-amber-400">
-                Layanan Kami
-              </div>
-              <h2 className="text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold text-white leading-tight">
-                Apa yang Bisa Kita Kerjakan Bareng?
-              </h2>
-              <p className="text-[#C7B6A6] text-base">
-                Mulai dari bikin produk dari nol, menyambungkan API pembayaran &amp; merchant,
-                hingga merapikan sistem yang sudah berjalan.
-              </p>
+          <div className="max-w-2xl space-y-3">
+            <div className="text-xs font-mono uppercase tracking-widest text-amber-400">
+              Layanan Kami
             </div>
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-[#A89482] self-start sm:self-end pb-1 select-none">
-              <span
-                className={`w-2 h-2 rounded-[8px] ${
-                  isServicesPaused ? 'bg-amber-400' : 'bg-emerald-400 animate-pulse'
-                }`}
-              />
-              <span>{isServicesPaused ? 'Auto-switch dijeda' : 'Auto switch 30s'}</span>
-            </div>
+            <h2 className="text-[clamp(1.75rem,3.2vw,2.6rem)] font-bold text-white leading-tight">
+              Apa yang Bisa Kita Kerjakan Bareng?
+            </h2>
+            <p className="text-[#C7B6A6] text-base">
+              Mulai dari bikin produk dari nol, menyambungkan API pembayaran &amp; merchant,
+              hingga merapikan sistem yang sudah berjalan.
+            </p>
           </div>
 
           <div
@@ -337,26 +327,16 @@ export const HomePage: React.FC = () => {
                     aria-selected={isActive}
                     type="button"
                     onClick={() => setActiveServiceId(service.id)}
-                    className={`relative p-4 sm:p-5 text-left transition-colors cursor-pointer overflow-hidden ${
+                    className={`p-4 sm:p-5 text-left transition-colors cursor-pointer ${
                       isActive
                         ? 'bg-[#211009] text-white'
                         : 'text-[#C7B6A6] hover:bg-[#190C06] hover:text-white'
                     }`}
                   >
-                    <div className="text-[11px] font-mono text-amber-400 mb-1 truncate flex items-center justify-between">
-                      <span>0{index + 1} — {service.badge}</span>
+                    <div className="text-[11px] font-mono text-amber-400 mb-1 truncate">
+                      0{index + 1} — {service.badge}
                     </div>
                     <div className="text-sm sm:text-base font-bold">{service.title}</div>
-                    {isActive && (
-                      <span
-                        key={activeServiceId}
-                        className="absolute bottom-0 left-0 h-[2px] bg-amber-400 pointer-events-none"
-                        style={{
-                          animation: 'serviceProgress 30s linear forwards',
-                          animationPlayState: isServicesPaused ? 'paused' : 'running',
-                        }}
-                      />
-                    )}
                   </button>
                 );
               })}
