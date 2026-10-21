@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import {
   BRAND_INFO,
-  HERO_STATS,
   PORTFOLIO_ITEMS,
   PortfolioItem,
   SERVICES,
@@ -32,7 +31,6 @@ import { updatePageSeo } from '../utils/seo';
 export const HomePage: React.FC = () => {
   const [activeServiceId, setActiveServiceId] = useState<string>(SERVICES[0].id);
   const [isServicesPaused, setIsServicesPaused] = useState<boolean>(false);
-  const [activePortfolioCategory, setActivePortfolioCategory] = useState<string>('Semua');
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
 
   const [formName, setFormName] = useState('');
@@ -61,7 +59,7 @@ export const HomePage: React.FC = () => {
         const nextIndex = (currentIndex + 1) % SERVICES.length;
         return SERVICES[nextIndex].id;
       });
-    }, 5000);
+    }, 8000);
 
     return () => clearInterval(timer);
   }, [isServicesPaused, activeServiceId]);
@@ -77,15 +75,7 @@ export const HomePage: React.FC = () => {
 
   const activeService = SERVICES.find((s) => s.id === activeServiceId) || SERVICES[0];
 
-  const portfolioCategories = [
-    'Semua',
-    ...Array.from(new Set(PORTFOLIO_ITEMS.map((item) => item.category))),
-  ];
-
-  const filteredPortfolio =
-    activePortfolioCategory === 'Semua'
-      ? PORTFOLIO_ITEMS
-      : PORTFOLIO_ITEMS.filter((item) => item.category === activePortfolioCategory);
+  const featuredProjects = PORTFOLIO_ITEMS.slice(0, 2);
 
   const handleInquireFromPortfolio = (projectTitle: string) => {
     setFormTopic('Bikin Website / Aplikasi');
@@ -133,7 +123,7 @@ export const HomePage: React.FC = () => {
                 kualitasnya terjaga.
               </p>
 
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
+              <div className="flex flex-wrap items-center gap-3.5 pt-3">
                 <button
                   type="button"
                   onClick={() => smoothScrollToElement('portofolio', 850)}
@@ -150,17 +140,6 @@ export const HomePage: React.FC = () => {
                   <Coffee className="w-4 h-4 text-amber-400" />
                   <span>Ngobrol Dulu Yuk</span>
                 </button>
-              </div>
-
-              <div className="pt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-white/10">
-                {HERO_STATS.map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-xl sm:text-2xl font-bold font-display text-white">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-[#B5A392] mt-1">{stat.label}</div>
-                  </div>
-                ))}
               </div>
             </div>
 
@@ -244,47 +223,37 @@ export const HomePage: React.FC = () => {
               </h2>
 
               <p className="text-[#D5C7B8] text-base leading-relaxed">
-                Kami sadar, membangun website atau aplikasi sering kali terasa membingungkan
-                karena banyaknya istilah teknis. Di <strong className="text-white">KanaKoding</strong>,
-                kami mulai semuanya dari mendengar cerita Anda, lalu meracik solusinya dengan
-                desain yang simpel dan jujur.
-              </p>
-
-              <p className="text-[#C7B6A6] text-base leading-relaxed">
-                Di dapur kerja, kami juga menggunakan <strong className="text-amber-300">AI untuk optimasi kecepatan delivery dan kualitas kode</strong>,
-                serta siap menyambungkan aplikasi Anda ke berbagai layanan pihak ketiga seperti{' '}
-                <strong className="text-white">merchant, sistem pembayaran, hingga sosial media</strong>.
+                Membangun website atau aplikasi sering kali membingungkan karena banyaknya istilah teknis.
+                Di <strong className="text-white">KanaKoding</strong>, kami mulai dari mendengarkan cerita
+                dan kebutuhan Anda—lalu meracik solusi yang simpel, teruji, dan jujur.
               </p>
 
               <div className="pt-4 border-y border-white/10 grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
                 <div className="py-4 sm:pr-5">
                   <div className="text-amber-400 font-mono text-xs">01</div>
                   <h3 className="text-base font-bold text-white mt-1">
-                    Komunikasi Nyambung
+                    Bahasa Manusia
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
-                    Tanpa jargon yang bikin kening berkerut. Semua opsi kami jelaskan dengan
-                    bahasa yang jernih.
+                    Obrolan santai tanpa jargon rumit. Opsi teknis selalu kami jelaskan dengan jernih.
                   </p>
                 </div>
                 <div className="py-4 sm:px-5">
                   <div className="text-amber-400 font-mono text-xs">02</div>
                   <h3 className="text-base font-bold text-white mt-1">
-                    Optimasi AI &amp; Kualitas
+                    Optimasi AI
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
-                    Kami memanfaatkan AI untuk mempercepat waktu pengerjaan (delivery) dan
-                    memastikan kode lebih teruji.
+                    Bantuan AI di dapur kerja untuk mempercepat delivery dan menjaga kualitas kode.
                   </p>
                 </div>
                 <div className="py-4 sm:pl-5">
                   <div className="text-amber-400 font-mono text-xs">03</div>
                   <h3 className="text-base font-bold text-white mt-1">
-                    Siap Integrasi API
+                    Integrasi API
                   </h3>
                   <p className="text-xs text-[#B5A392] mt-1.5 leading-relaxed">
-                    Mudah disambungkan ke payment gateway, sistem merchant/POS, hingga kanal
-                    sosial media Anda.
+                    Siap tersambung ke payment gateway, kasir merchant, hingga sosial media Anda.
                   </p>
                 </div>
               </div>
@@ -342,7 +311,7 @@ export const HomePage: React.FC = () => {
                         key={activeServiceId}
                         className="absolute bottom-0 left-0 h-[2px] bg-amber-400 pointer-events-none"
                         style={{
-                          animation: 'serviceProgress 5s linear forwards',
+                          animation: 'serviceProgress 8s linear forwards',
                           animationPlayState: isServicesPaused ? 'paused' : 'running',
                         }}
                       />
@@ -420,51 +389,12 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 rounded-[8px] border border-white/10 bg-[#160B06] divide-y md:divide-y-0 md:divide-x divide-white/10">
-            <div className="p-5 sm:p-6 space-y-1.5">
-              <div className="text-xs font-mono text-amber-400">
-                AI-OPTIMIZED DELIVERY
-              </div>
-              <h3 className="text-base font-bold text-white">
-                Rilis Lebih Cepat &amp; Terjaga
-              </h3>
-              <p className="text-xs sm:text-sm text-[#C7B6A6] leading-relaxed">
-                Kami menggunakan AI untuk membantu pengecekan kualitas kode, mempercepat
-                iterasi fitur, dan memangkas waktu tunggu pengerjaan.
-              </p>
-            </div>
-            <div className="p-5 sm:p-6 space-y-1.5">
-              <div className="text-xs font-mono text-amber-400">
-                PAYMENT &amp; MERCHANT API
-              </div>
-              <h3 className="text-base font-bold text-white">
-                Transaksi &amp; Kasir Otomatis
-              </h3>
-              <p className="text-xs sm:text-sm text-[#C7B6A6] leading-relaxed">
-                Integrasi langsung dengan QRIS, Virtual Account, E-Wallet, sistem POS merchant,
-                marketplace, hingga ekspedisi pengiriman.
-              </p>
-            </div>
-            <div className="p-5 sm:p-6 space-y-1.5">
-              <div className="text-xs font-mono text-amber-400">
-                SOCIAL MEDIA &amp; OAUTH API
-              </div>
-              <h3 className="text-base font-bold text-white">
-                Terhubung ke Kanal Sosial
-              </h3>
-              <p className="text-xs sm:text-sm text-[#C7B6A6] leading-relaxed">
-                Koneksi API ke WhatsApp Business, Instagram, Meta, serta kemudahan login satu
-                klik (Google/Social Login) untuk pengguna Anda.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
       <section id="portofolio" className="py-24 border-b border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div className="space-y-3 max-w-xl">
               <div className="text-xs font-mono uppercase tracking-widest text-amber-400">
                 Karya Pilihan
@@ -478,26 +408,17 @@ export const HomePage: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2">
-              {portfolioCategories.map((cat) => (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setActivePortfolioCategory(cat)}
-                  className={`px-3.5 py-2 rounded-[8px] text-xs font-medium transition-colors cursor-pointer ${
-                    activePortfolioCategory === cat
-                      ? 'bg-amber-500 text-[#1A0B05] font-bold'
-                      : 'bg-[#180C06] text-[#C7B6A6] border border-white/10 hover:border-amber-500/40 hover:text-white'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+            <Link
+              to="/portofolio"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-[#180C06] hover:bg-[#221109] text-amber-300 border border-white/15 transition-colors shrink-0"
+            >
+              <span>Semua Karya ({PORTFOLIO_ITEMS.length})</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
           <div className="border-t border-white/12 divide-y divide-white/12">
-            {filteredPortfolio.map((item, idx) => (
+            {featuredProjects.map((item, idx) => (
               <article
                 key={item.id}
                 onClick={() => setSelectedProject(item)}
@@ -548,15 +469,15 @@ export const HomePage: React.FC = () => {
             ))}
           </div>
 
-          <div className="pt-2 flex items-center justify-between flex-wrap gap-4">
-            <span className="text-sm text-[#B5A392]">
-              Ingin melihat detail lengkap semua proyek?
-            </span>
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 text-center sm:text-left">
+            <p className="text-sm text-[#B5A392]">
+              Ingin melihat studi kasus lainnya seperti dashboard operasional atau ruang jurnal?
+            </p>
             <Link
               to="/portofolio"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-[8px] text-sm font-semibold bg-[#180C06] hover:bg-[#221109] text-amber-300 border border-white/15 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-[8px] text-sm font-bold bg-amber-500 text-[#1A0B05] hover:bg-amber-400 transition-colors"
             >
-              <span>Halaman Portofolio Lengkap</span>
+              <span>Buka Halaman Portofolio Lengkap</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
