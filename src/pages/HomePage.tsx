@@ -61,7 +61,7 @@ export const HomePage: React.FC = () => {
         const nextIndex = (currentIndex + 1) % SERVICES.length;
         return SERVICES[nextIndex].id;
       });
-    }, 30000);
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [isServicesPaused, activeServiceId]);
@@ -327,7 +327,7 @@ export const HomePage: React.FC = () => {
                     aria-selected={isActive}
                     type="button"
                     onClick={() => setActiveServiceId(service.id)}
-                    className={`p-4 sm:p-5 text-left transition-colors cursor-pointer ${
+                    className={`relative p-4 sm:p-5 text-left transition-colors cursor-pointer overflow-hidden ${
                       isActive
                         ? 'bg-[#211009] text-white'
                         : 'text-[#C7B6A6] hover:bg-[#190C06] hover:text-white'
@@ -337,6 +337,16 @@ export const HomePage: React.FC = () => {
                       0{index + 1} — {service.badge}
                     </div>
                     <div className="text-sm sm:text-base font-bold">{service.title}</div>
+                    {isActive && (
+                      <span
+                        key={activeServiceId}
+                        className="absolute bottom-0 left-0 h-[2px] bg-amber-400 pointer-events-none"
+                        style={{
+                          animation: 'serviceProgress 5s linear forwards',
+                          animationPlayState: isServicesPaused ? 'paused' : 'running',
+                        }}
+                      />
+                    )}
                   </button>
                 );
               })}
