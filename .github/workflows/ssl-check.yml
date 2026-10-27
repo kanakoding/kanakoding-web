@@ -1,0 +1,81 @@
+name: SSL Expiry Check
+
+# Daily check of the Let's Encrypt certificates served by the VPS origin.
+# Domains are auto-discovered from kk-site managed nginx configs, so new
+# subdomains are covered automatically. Fails (=> GitHub email) when any
+# certificate expires in less than MIN_DAYS (certbot renews at 30 days left).
+
+on:
+  schedule:
+    - cron: "0 1 * * *" # 08:00 WIB
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  MIN_DAYS: 14
+  FALLBACK_DOMAINS: "kanakoding.com www.kanakoding.com"
+
+jobs:
+  check:
+    name: Check certificates
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Setup SSH
+        env:
+          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+
+      - name: Discover domains
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+        run: |
+          domains=$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            "$VPS_USER@$VPS_HOST" \
+            "grep -ho 'server_name [^;_]*;' /etc/nginx/sites-enabled/*.conf | sed 's/server_name //; s/;//' | tr ' ' '\n' | sort -u" \
+            || true)
+          domains=$(echo "$domains" | tr '\n' ' ' | xargs)
+          [ -n "$domains" ] || domains="$FALLBACK_DOMAINS"
+          echo "Domains: $domains"
+          echo "DOMAINS=$domains" >> "$GITHUB_ENV"
+
+      - name: Check expiry
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+        run: |
+          fail=0
+          now=$(date +%s)
+          {
+            echo "| Domain | Expires | Days left | Status |"
+            echo "|---|---|---|---|"
+          } >> "$GITHUB_STEP_SUMMARY"
+          for d in $DOMAINS; do
+            end=$(echo | timeout 15 openssl s_client -connect "$VPS_HOST:443" -servername "$d" 2>/dev/null \
+                  | openssl x509 -noout -enddate 2>/dev/null | cut -d= -f2)
+            if [ -z "$end" ]; then
+              echo "::error::$d: could not read certificate"
+              echo "| $d | - | - | ❌ unreadable |" >> "$GITHUB_STEP_SUMMARY"
+              fail=1; continue
+            fi
+            days=$(( ( $(date -d "$end" +%s) - now ) / 86400 ))
+            if [ "$days" -lt "$MIN_DAYS" ]; then
+              echo "::error::$d expires in $days days ($end)"
+              echo "| $d | $end | $days | ❌ |" >> "$GITHUB_STEP_SUMMARY"
+              fail=1
+            else
+              echo "$d OK: $days days left ($end)"
+              echo "| $d | $end | $days | ✅ |" >> "$GITHUB_STEP_SUMMARY"
+            fi
+          done
+          exit $fail
+
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/deploy_key
