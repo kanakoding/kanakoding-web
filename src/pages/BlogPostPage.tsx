@@ -147,7 +147,7 @@ export const BlogPostPage: React.FC = () => {
           '@type': 'TechArticle',
           headline: post.title,
           description: post.excerpt,
-          image: `https://www.kanakoding.com${post.coverImage}`,
+          image: `https://kanakoding.com${post.coverImage}`,
           author: {
             '@type': 'Organization',
             name: post.author,
@@ -157,12 +157,12 @@ export const BlogPostPage: React.FC = () => {
             name: BRAND_INFO.name,
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.kanakoding.com/assets/img/logo.png',
+              url: 'https://kanakoding.com/assets/img/logo.png',
             },
           },
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://www.kanakoding.com/blog/${post.slug}`,
+            '@id': `https://kanakoding.com/blog/${post.slug}`,
           },
         },
       });

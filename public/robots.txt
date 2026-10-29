@@ -6,3 +6,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://kanakoding.com/sitemap.xml
