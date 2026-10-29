@@ -30,7 +30,7 @@ export function updatePageSeo({
   setMeta('meta[property="og:description"]', 'property', 'og:description', description);
   setMeta('meta[property="og:type"]', 'property', 'og:type', ogType);
 
-  const canonicalUrl = `https://www.kanakoding.com${canonicalPath}`;
+  const canonicalUrl = `https://kanakoding.com${canonicalPath}`;
   let canonicalEl = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
   if (!canonicalEl) {
     canonicalEl = document.createElement('link');

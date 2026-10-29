@@ -224,7 +224,7 @@ export const WORKFLOW_STEPS: WorkflowStep[] = [
 
 export const ADSENSE_CONFIG = {
     enabled: false,
-    clientId: "ca-pub-0000000000000000",
+    clientId: "ca-pub-3230325672170642",
     slots: {
         blogTopBanner: "1111111111",
         blogInArticle: "2222222222",
