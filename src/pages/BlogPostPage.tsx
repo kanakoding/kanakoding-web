@@ -14,6 +14,7 @@ import {
 import { BLOG_POSTS, getBlogPostBySlug } from '../data/blogData';
 import { ADSENSE_CONFIG, BRAND_INFO } from '../data/siteData';
 import { AdUnit } from '../components/AdUnit';
+import { ShareButtons } from '../components/ShareButtons';
 import { updatePageSeo } from '../utils/seo';
 import { smoothScrollToElement, smoothScrollToY } from '../utils/smoothScroll';
 
@@ -241,19 +242,11 @@ export const BlogPostPage: React.FC = () => {
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                if (navigator.clipboard) {
-                  navigator.clipboard.writeText(window.location.href);
-                }
-              }}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] bg-[#180C06] hover:bg-[#221109] border border-white/12 text-xs text-[#E5D9CE] cursor-pointer"
-              title="Salin Tautan Artikel"
-            >
-              <Share2 className="w-3.5 h-3.5 text-amber-400" />
-              <span>Bagikan</span>
-            </button>
+            <ShareButtons
+              title={post.title}
+              summary={post.excerpt}
+              variant="compact"
+            />
           </div>
         </div>
 
@@ -311,6 +304,14 @@ export const BlogPostPage: React.FC = () => {
               </span>
             ))}
           </div>
+        </div>
+
+        <div className="mt-8">
+          <ShareButtons
+            title={post.title}
+            summary={post.excerpt}
+            variant="bar"
+          />
         </div>
 
         <div className="mt-8 p-6 rounded-[8px] bg-[#140904] border border-white/12 flex flex-col sm:flex-row items-start gap-4">

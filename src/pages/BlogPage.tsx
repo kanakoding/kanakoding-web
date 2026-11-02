@@ -5,8 +5,10 @@ import {
   ArrowUpDown,
   BookOpen,
   Calendar,
+  Check,
   Clock,
   Search,
+  Share2,
   ShieldCheck,
   Tag,
 } from 'lucide-react';
@@ -20,6 +22,7 @@ export const BlogPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
+  const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
 
   useEffect(() => {
     smoothScrollToY(0, 500);
@@ -140,14 +143,45 @@ export const BlogPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-4">
                   <div className="text-xs text-[#C7B6A6]">
                     Ditulis oleh <strong className="text-white">{featuredPost.author}</strong>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-amber-400">
-                    <span>Baca Tulisan</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const shareUrl = `${window.location.origin}/blog/${featuredPost.slug}`;
+                        if (typeof navigator !== 'undefined' && navigator.share) {
+                          navigator.share({ title: featuredPost.title, url: shareUrl });
+                        } else if (navigator.clipboard) {
+                          navigator.clipboard.writeText(shareUrl);
+                          setCopiedSlug(featuredPost.slug);
+                          setTimeout(() => setCopiedSlug(null), 2000);
+                        }
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[5px] bg-[#180C06] border border-white/12 text-xs font-mono text-[#D5C7B8] hover:text-amber-400 hover:border-amber-500/40 transition-colors cursor-pointer"
+                      title="Bagikan tulisan ini"
+                    >
+                      {copiedSlug === featuredPost.slug ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="text-emerald-400 font-medium">Tersalin!</span>
+                        </>
+                      ) : (
+                        <>
+                          <Share2 className="w-3.5 h-3.5 text-amber-400" />
+                          <span>Bagikan</span>
+                        </>
+                      )}
+                    </button>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-bold text-amber-400">
+                      <span>Baca Tulisan</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -255,9 +289,40 @@ export const BlogPage: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                    <span className="text-xs font-semibold text-amber-400 inline-flex items-center gap-1">
-                      Baca <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
+                    <div className="flex items-center gap-3">
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          const postUrl = `${window.location.origin}/blog/${post.slug}`;
+                          if (typeof navigator !== 'undefined' && navigator.share) {
+                            navigator.share({ title: post.title, url: postUrl });
+                          } else if (navigator.clipboard) {
+                            navigator.clipboard.writeText(postUrl);
+                            setCopiedSlug(post.slug);
+                            setTimeout(() => setCopiedSlug(null), 2000);
+                          }
+                        }}
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[5px] bg-[#180C06] border border-white/10 hover:border-amber-500/40 text-[11px] font-mono text-[#C7B6A6] hover:text-amber-400 transition-colors cursor-pointer"
+                        title="Bagikan artikel ini"
+                      >
+                        {copiedSlug === post.slug ? (
+                          <>
+                            <Check className="w-3 h-3 text-emerald-400" />
+                            <span className="text-emerald-400 font-medium">Tersalin!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Share2 className="w-3 h-3 text-amber-400" />
+                            <span>Bagikan</span>
+                          </>
+                        )}
+                      </button>
+                      <span className="text-xs font-semibold text-amber-400 inline-flex items-center gap-1">
+                        Baca <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </Link>
