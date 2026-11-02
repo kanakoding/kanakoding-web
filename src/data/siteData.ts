@@ -40,7 +40,7 @@ export const BRAND_INFO = {
     subQuote: "Teman seperjalanan digital untuk bisnis dan ide-ide baru Anda.",
     description:
         "KanaKoding adalah studio pengembangan produk digital dan teman diskusi teknologi. Kami meracik website, aplikasi, serta integrasi API (merchant, pembayaran, sosial media) dengan bantuan optimasi AI agar proses delivery jauh lebih cepat dan kualitasnya terjaga.",
-    email: "halo@kanakoding.com",
+    email: "kanakoding@gmail.com",
     whatsapp: "6281234567890",
     location: "Jakarta, Indonesia",
     socials: {
