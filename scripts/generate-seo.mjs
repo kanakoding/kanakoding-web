@@ -80,7 +80,7 @@ function markdownToSemanticHtml(md) {
 const mdFiles = fs
   .readdirSync(BLOG_DIR)
   .filter((f) => f.endsWith('.md'))
-  .sort();
+  .sort((a, b) => b.localeCompare(a));
 
 const posts = mdFiles.map((file) => {
   const raw = fs.readFileSync(path.join(BLOG_DIR, file), 'utf8');

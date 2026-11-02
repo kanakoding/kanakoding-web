@@ -57,7 +57,7 @@ function parseFrontmatter(raw: string): { data: Record<string, unknown>; content
 }
 
 export const BLOG_POSTS: BlogPost[] = Object.entries(rawMarkdownFiles)
-  .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+  .sort(([pathA], [pathB]) => pathB.localeCompare(pathA))
   .map(([, rawContent]) => {
     const { data, content } = parseFrontmatter(rawContent);
     return {
