@@ -143,6 +143,7 @@ export const BlogPostPage: React.FC = () => {
         description: post.excerpt,
         canonicalPath: `/blog/${post.slug}`,
         ogType: 'article',
+        image: post.coverImage,
         jsonLd: {
           '@context': 'https://schema.org',
           '@type': 'TechArticle',

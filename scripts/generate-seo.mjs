@@ -146,22 +146,44 @@ if (fs.existsSync(path.join(DIST_DIR, 'index.html'))) {
 
   const navLinksHtml = `<nav aria-label="Navigasi Utama"><a href="/">Beranda</a> | <a href="/portofolio">Portofolio</a> | <a href="/blog">Jurnal &amp; Blog</a> | <a href="/privasi">Kebijakan Privasi</a> | <a href="/tos">Syarat &amp; Ketentuan</a> | <a href="/disclaimer">Disclaimer</a></nav>`;
 
-  function buildPageHtml({ title, description, canonicalPath, ogType = 'website', jsonLd, bodyHtml }) {
+  function buildPageHtml({
+    title,
+    description,
+    canonicalPath,
+    ogType = 'website',
+    image = '/assets/img/blog-bridgeplay.jpg',
+    jsonLd,
+    bodyHtml,
+  }) {
     const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+    const absoluteImageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`;
+    const imageType = absoluteImageUrl.endsWith('.png') ? 'image/png' : 'image/jpeg';
+
     let html = baseHtml
       .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
-      .replace(
-        /<meta\s+name="description"\s+content="[^"]*"\s*\/?>/,
-        `<meta name="description" content="${escapeHtml(description)}" />\n    <link rel="canonical" href="${canonicalUrl}" />\n    <meta property="og:title" content="${escapeHtml(title)}" />\n    <meta property="og:description" content="${escapeHtml(description)}" />\n    <meta property="og:type" content="${ogType}" />\n    <meta property="og:url" content="${canonicalUrl}" />${
-          jsonLd
-            ? `\n    <script id="kanakoding-jsonld" type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
-            : ''
-        }`
-      )
-      .replace(
-        '<div id="root"></div>',
-        `<div id="root"><main>${navLinksHtml}${bodyHtml}</main></div>`
-      );
+      .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, `<meta name="description" content="${escapeHtml(description)}" />`)
+      .replace(/<link\s+rel="canonical"\s+href="[^"]*"\s*\/?>/i, `<link rel="canonical" href="${canonicalUrl}" />`)
+      .replace(/<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:type" content="${ogType}" />`)
+      .replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:url" content="${canonicalUrl}" />`)
+      .replace(/<meta\s+property="og:title"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:title" content="${escapeHtml(title)}" />`)
+      .replace(/<meta\s+property="og:description"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:description" content="${escapeHtml(description)}" />`)
+      .replace(/<meta\s+property="og:image"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image" content="${absoluteImageUrl}" />`)
+      .replace(/<meta\s+property="og:image:secure_url"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image:secure_url" content="${absoluteImageUrl}" />`)
+      .replace(/<meta\s+property="og:image:type"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image:type" content="${imageType}" />`)
+      .replace(/<meta\s+property="og:image:alt"\s+content="[^"]*"\s*\/?>/i, `<meta property="og:image:alt" content="${escapeHtml(title)}" />`)
+      .replace(/<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/?>/i, `<meta name="twitter:title" content="${escapeHtml(title)}" />`)
+      .replace(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/?>/i, `<meta name="twitter:description" content="${escapeHtml(description)}" />`)
+      .replace(/<meta\s+name="twitter:image"\s+content="[^"]*"\s*\/?>/i, `<meta name="twitter:image" content="${absoluteImageUrl}" />`);
+
+    if (jsonLd) {
+      const jsonLdTag = `\n    <script id="kanakoding-jsonld" type="application/ld+json">${JSON.stringify(jsonLd)}</script>`;
+      html = html.replace('</head>', `${jsonLdTag}\n  </head>`);
+    }
+
+    html = html.replace(
+      '<div id="root"></div>',
+      `<div id="root"><main>${navLinksHtml}${bodyHtml}</main></div>`
+    );
     return html;
   }
 
@@ -269,6 +291,7 @@ if (fs.existsSync(path.join(DIST_DIR, 'index.html'))) {
       description: post.excerpt,
       canonicalPath: `/blog/${post.slug}`,
       ogType: 'article',
+      image: post.coverImage,
       jsonLd: {
         '@context': 'https://schema.org',
         '@type': 'TechArticle',

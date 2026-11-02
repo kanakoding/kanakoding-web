@@ -7,7 +7,7 @@ date: "26 Oktober 2026"
 readTime: "9 menit baca"
 author: "KanaKoding Core Dev"
 authorRole: "Frontend & SEO Specialist"
-coverImage: "/assets/img/bg_kanakoding.png"
+coverImage: "/assets/img/bg_kanakoding.jpg"
 featured: false
 tags: ["SEO", "React", "Vite", "JSON-LD", "Google Search"]
 ---

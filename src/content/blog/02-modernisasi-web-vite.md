@@ -7,7 +7,7 @@ date: "10 Oktober 2026"
 readTime: "8 menit baca"
 author: "KanaKoding Core Dev"
 authorRole: "Frontend Architecture"
-coverImage: "/assets/img/bg_kanakoding.png"
+coverImage: "/assets/img/bg_kanakoding.jpg"
 featured: false
 tags: ["Vite", "React", "Tailwind CSS", "Web Performance"]
 ---
