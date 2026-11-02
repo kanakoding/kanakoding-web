@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
+  ArrowUpDown,
   BookOpen,
   Calendar,
   Clock,
@@ -18,6 +19,7 @@ import { smoothScrollToY } from '../utils/smoothScroll';
 export const BlogPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('Semua');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [sortOrder, setSortOrder] = useState<'desc' | 'asc'>('desc');
 
   useEffect(() => {
     smoothScrollToY(0, 500);
@@ -40,6 +42,15 @@ export const BlogPage: React.FC = () => {
       post.excerpt.toLowerCase().includes(q) ||
       post.tags.some((t) => t.toLowerCase().includes(q));
     return matchCategory && matchQuery;
+  }).sort((a, b) => {
+    if (sortOrder === 'desc') {
+      return b.timestamp !== a.timestamp
+        ? b.timestamp - a.timestamp
+        : b.orderNumber - a.orderNumber;
+    }
+    return a.timestamp !== b.timestamp
+      ? a.timestamp - b.timestamp
+      : a.orderNumber - b.orderNumber;
   });
 
   const featuredPost =
@@ -160,9 +171,20 @@ export const BlogPage: React.FC = () => {
               </button>
             ))}
           </div>
-          <span className="text-xs font-mono text-[#A89482]">
-            {filteredPosts.length} Tulisan
-          </span>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setSortOrder((prev) => (prev === 'desc' ? 'asc' : 'desc'))}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[8px] text-xs font-mono bg-[#180C06] border border-white/12 text-[#C7B6A6] hover:text-amber-400 hover:border-amber-500/40 transition-colors cursor-pointer"
+              title="Ubah urutan (Terbaru / Terlama)"
+            >
+              <ArrowUpDown className="w-3.5 h-3.5 text-amber-400" />
+              <span>{sortOrder === 'desc' ? 'Terbaru (Descending)' : 'Terlama (Ascending)'}</span>
+            </button>
+            <span className="text-xs font-mono text-[#A89482]">
+              {filteredPosts.length} Tulisan
+            </span>
+          </div>
         </div>
 
         {filteredPosts.length === 0 ? (
@@ -200,7 +222,7 @@ export const BlogPage: React.FC = () => {
                 <div className="md:col-span-8 flex flex-col justify-between space-y-4">
                   <div className="space-y-2.5">
                     <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#A89482]">
-                      <span className="text-amber-400">0{idx + 1} · {post.category}</span>
+                      <span className="text-amber-400">#{String(post.orderNumber).padStart(2, '0')} · {post.category}</span>
                       <span>·</span>
                       <span className="inline-flex items-center gap-1">
                         <Calendar className="w-3.5 h-3.5 text-amber-400" />
