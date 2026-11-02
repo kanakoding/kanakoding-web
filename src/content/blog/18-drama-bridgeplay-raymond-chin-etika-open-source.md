@@ -7,8 +7,8 @@ date: "02 November 2026"
 readTime: "11 menit baca"
 author: "Dila Bestlian"
 authorRole: "Lead Architect"
-coverImage: "/assets/img/bg_kanakoding.png"
-featured: false
+coverImage: "/assets/img/blog-bridgeplay.jpg"
+featured: true
 tags: ["Open Source", "GPL", "Bridgeplay", "Raymond Chin", "Software Ethics", "Engineering Culture"]
 ---
 
